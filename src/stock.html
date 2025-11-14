@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+  @@include('html/head.html', { "title": "Акции" })
+  <body>
+    @@include('html/header.html')
+
+    <main>
+      <section class="stock full-section">
+        <div class="container">
+          <div class="stock__container">
+            <div class="stock__heading heading">
+              <h2 class="stock__title title-s text-up color-primary whitespace-nowrap">Спецпредложения</h2>
+              <span class="line"></span>
+            </div>
+            <div class="stock__cards">
+              <div class="stock__card stock-card">
+                <div class="stock-card__img"><img src="files/img/stock-1.png" alt=""></div>
+                <div class="stock-card__caption title-m text-center">Каталог сувенирной продукции</div>
+                <div class="stock-card__txt color-grey text-center">Ознакомьтесь с нашим полным каталогом сувенирной продукции.</div>
+                <a href="" class="stock-card__button button button_dark button_center" download>Скачать каталог</a>
+              </div>
+              <div class="stock__card stock-card">
+                <div class="stock-card__img"><img src="files/img/stock-2.png" alt=""></div>
+                <div class="stock-card__caption title-m text-center">Каталог для бизнеса</div>
+                <div class="stock-card__txt color-grey text-center">Наш полный каталог продукции для вашего бизнеса.</div>
+                <a href="" class="stock-card__button button button_dark button_center" download>Скачать каталог</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <!-- @@include('html/modal.html')  -->
+    @@include('html/footer.html') 
+    @@include('html/foot.html')
+  </body>
+</html>

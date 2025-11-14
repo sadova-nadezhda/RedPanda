@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+  @@include('html/head.html', { "title": "Вакансии" })
+  <body>
+    @@include('html/header.html')
+
+    <main>
+      <section class="vacancies first-section">
+        <div class="container">
+          <div class="vacancies__container">
+            <div class="vacancies__heading heading">
+              <h2 class="vacancies__title title-s text-up color-primary whitespace-nowrap">Вакансии</h2>
+              <span class="line"></span>
+            </div>
+            <div class="vacancies__cards">
+              <div class="vacancies__card vacancies-card">
+                <div class="vacancies-card__top">
+                  <div class="vacancies-card__group">
+                    <div class="vacancies-card__name title-s">Офис-менеджер</div>
+                    <div class="vacancies-card__price">от 250 000 тенге до вычета налогов</div>
+                  </div>
+                  <div class="vacancies-card__experience text-xs whitespace-nowrap">Опыт 1—3 года</div>
+                </div>
+                <div class="vacancies-card__content">
+                  <div class="vacancies-card__box">
+                    <div class="vacancies-card__caption color-primary">Условия</div>
+                    <div class="vacancies-card__desc">
+                      <p>Официальное трудоустройство. Рабочий день 09:00–18:00 (5/2)</p>
+                    </div>
+                  </div>
+                  <div class="vacancies-card__box">
+                    <div class="vacancies-card__caption color-primary">Обязанности</div>
+                    <div class="vacancies-card__desc">
+                      <ol>
+                        <li>Ответы на телефонные звонки;</li>
+                        <li>Ведение деловой корреспонденции;</li>
+                        <li>Логистика;</li>
+                        <li>Административно-хозяйственная часть;</li>
+                        <li>Выполнение поручений руководителя.</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+                <button class="vacancies-card__button button button_grey">Откликнуться</button>
+              </div>
+              <div class="vacancies__card vacancies-card">
+                <div class="vacancies-card__top">
+                  <div class="vacancies-card__group">
+                    <div class="vacancies-card__name title-s">Печатник</div>
+                    <div class="vacancies-card__price">от 250 000 тенге до вычета налогов</div>
+                  </div>
+                  <div class="vacancies-card__experience text-xs whitespace-nowrap">Опыт 1—3 года</div>
+                </div>
+                <div class="vacancies-card__content">
+                  <div class="vacancies-card__box">
+                    <div class="vacancies-card__caption color-primary">Условия</div>
+                    <div class="vacancies-card__desc">
+                      <p>Официальное трудоустройство. Рабочий день 09:00–18:00 (5/2)</p>
+                    </div>
+                  </div>
+                  <div class="vacancies-card__box">
+                    <div class="vacancies-card__caption color-primary">Обязанности</div>
+                    <div class="vacancies-card__desc">
+                      <ol>
+                        <li>Работа на машинах: Mimaki UJV100-160, принтер сублимационный Epson L1800, принтер Roland VersanCAMM VS-640i, принтер планшетный УФ Roland VersanUV LEF-200, гравировальная машина Roland Desktop EGX-350;</li>
+                        <li>Постпечатная обработка продукции.</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+                <button class="vacancies-card__button button button_grey">Откликнуться</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="calculation reserve last-section">
+        <div class="container">
+          <div class="calculation__container reserve__container">
+            <div class="calculation__heading heading">
+              <h2 class="calculation__title title-s text-up color-primary whitespace-nowrap">Заявка на расчёт</h2>
+              <span class="line"></span>
+            </div>
+            <div class="calculation__wrap reserve__wrap">
+              <div class="calculation__left">
+                <h3 class="calculation__caption reserve__caption title-xl">Нет подходящей вакансии?</h3>
+                <div class="calculation__desc reserve__desc text-m">Оставьте заявку! Мы постоянно растём и ищем талантливых людей. Ваше резюме попадёт в нашу базу, и как только появится подходящая позиция, мы с вами свяжемся.</div>
+                <ul class="calculation__list reserve__list">
+                  <li><span><strong>Честная и быстрая оценка.</strong> Мы рассмотрим ваше резюме в течение 3 рабочих дней.</span></li>
+                  <li><span><strong>Полная конфиденциальность.</strong> Ваши данные будут доступны только HR-отделу.</span></li>
+                  <li><span><strong>Всегда на связи.</strong> Мы обязательно дадим обратную связь, независимо от нашего решения.</span></li>
+                </ul>
+              </div>
+              <div class="calculation__right form">
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <div class="relative">
+                      <input id="name" type="text" class="form-input peer" placeholder=" " required>
+                      <label for="name" class="form-label">
+                        <span>Желаемая вакансия</span>
+                      </label>
+                      <span class="input-border"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="relative">
+                      <input id="name" type="text" class="form-input peer" placeholder=" " required>
+                      <label for="name" class="form-label">
+                        <span>Ваше имя</span>
+                      </label>
+                      <span class="input-border"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="relative">
+                      <input id="phone" type="tel" class="form-input peer" placeholder=" " required>
+                      <label for="phone" class="form-label">
+                        <span>Телефон</span>
+                      </label>
+                      <span class="input-border"></span>
+                    </div>
+                  </div>
+                  <div class="calculation__file">
+                    <label for="file-upload" class="upload-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="upload-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                      <span class="upload-text">Прикрепить макет</span></label>
+                    <input id="file-upload" type="file" class="hidden" multiple="">
+                    <p class="upload-caption"> до 10 файлов, не более 100 МБ </p>
+                  </div>
+                  <button class="form-button button button_primary" type="submit" disabled>
+                    <span>Отправить заявку</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <!-- @@include('html/modal.html')  -->
+    @@include('html/footer.html') 
+    @@include('html/foot.html')
+  </body>
+</html>

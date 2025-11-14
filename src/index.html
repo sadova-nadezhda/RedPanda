@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ru">
+  @@include('html/head.html', { "title": "Главная" })
+  <body>
+    @@include('html/header.html')
+
+    <main>
+      <section class="hero first-section">
+        <div class="container">
+          <div class="hero__container">
+            <picture>
+              <source srcset="files/img/hero-mobsvg.svg" media="(max-width: 767px)">
+              <img class="hero__img" src="files/img/hero.svg" alt="">
+            </picture>
+            <div class="hero__content">
+              <div class="hero__title">
+                Современная полиграфия для вашего бизнеса
+              </div>
+              <div class="hero__desc">
+                Заполните форму, и мы свяжемся с вами для консультации и расчёта
+                стоимости вашего заказа.
+              </div>
+              <a class="hero__btn button button_dark">
+                Оставить заявку
+              </a>
+            </div>
+            <a
+              href="files/videos/hero.mp4"
+              class="hero__video"
+              data-fancybox="hero-video"
+            >
+              <video
+                autoplay
+                playsinline
+                loop
+                muted
+                src="files/videos/hero.mp4"
+              ></video>
+              <div class="hero__video-play">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="16"
+                  viewBox="0 0 13 16"
+                  fill="none"
+                >
+                  <path
+                    d="M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 0 14.7358 0 13.1962L0 2.80385C0 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="products">
+        <div class="container">
+          <div class="products__container">
+            <div class="products__heading heading">
+              <h2 class="products__title title-s text-up color-primary whitespace-nowrap">Все виды продукции </h2>
+              <span class="line"></span>
+            </div>
+            <div class="products__subtitle text-m text-center color-grey">Мы — современное печатное агентство, которое предоставляет полный спектр полиграфических услуг. Наведите курсор на услугу в таблице ниже, чтобы увидеть краткий предпросмотр.</div>
+            <div class="products__wrap">
+              <div class="products__letters letters">
+                <span class="products__letter letter text-xs text-up color-grey">б</span>
+                <span class="products__letter letter text-xs text-up color-grey">в</span>
+                <span class="products__letter letter text-xs text-up color-grey">д</span>
+                <span class="products__letter letter text-xs text-up color-grey">к</span>
+                <span class="products__letter letter text-xs text-up color-grey">л</span>
+                <span class="products__letter letter text-xs text-up color-grey">м</span>
+                <span class="products__letter letter text-xs text-up color-grey">н</span>
+                <span class="products__letter letter text-xs text-up color-grey">о</span>
+                <span class="products__letter letter text-xs text-up color-grey">п</span>
+                <span class="products__letter letter text-xs text-up color-grey">р</span>
+                <span class="products__letter letter text-xs text-up color-grey">с</span>
+                <span class="products__letter letter text-xs text-up color-grey">т</span>
+                <span class="products__letter letter text-xs text-up color-grey">ф</span>
+                <span class="products__letter letter text-xs text-up color-grey">х</span>
+              </div>
+              <div class="products__grid">
+                <div class="products__cell">
+                  <a href="">
+                    <span>Баннеры</span>
+                    <img src="files/img/Green Mall баннер.webp" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Бейджи</span>
+                    <img src="files/img/R-Club бейдж.webp" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Блокноты</span>
+                    <img src="files/img/блокнот 9.webp" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Брошюры</span>
+                    <img src="files/img/буклет.webp" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Бутылки</span>
+                    <img src="files/img/бутылка 2.webp" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Визитки</span>
+                    <img src="files/img/визитки.webp" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Дипломы</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Календари</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Книги</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Конверты</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Коробки</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Листовки</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Меню</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Мерч</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Навигация</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Наклейки</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Номерки</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Открытки</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Пакеты</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Папки</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Плакаты</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Презентации</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Приглашения</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Ролл-апы</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Сертификаты</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Стаканчики</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Стикеры</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Сувениры</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Таблички</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Тейбл-тенты</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Триплет</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Флаги</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Фотобуки</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+                <div class="products__cell">
+                  <a href="">
+                    <span>Хэнгеры</span>
+                    <img src="" alt="">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="services">
+        <div class="container">
+          <div class="services__container">
+            <div class="services__heading heading">
+              <h2 class="services__title title-s text-up color-primary whitespace-nowrap">наши услуги</h2>
+              <span class="line"></span>
+            </div>
+            <div class="services__cards">
+              <a class="services__card services-card" href="services-inner.html">
+                <div class="services-card__content">
+                  <div class="services-card__caption title-s">Цифровая печать</div>
+                  <div class="services-card__txt text-xs">Срочная и высококачественная печать визиток, флаеров, каталогов, буклетов, календарей, и многого другого</div>
+                </div>
+                <div class="services-card__img"><img src="files/img/services-1.webp" alt=""></div>
+              </a>
+              <a class="services__card services-card" href="services-inner.html">
+                <div class="services-card__content">
+                  <div class="services-card__caption title-s">Упаковка</div>
+                  <div class="services-card__txt text-xs">Изготовление коробок и бумажных стаканчиков с фирменным стилем</div>
+                </div>
+                <div class="services-card__img"><img src="files/img/services-2.webp" alt=""></div>
+              </a>
+              <a class="services__card services-card" href="services-inner.html">
+                <div class="services-card__content">
+                  <div class="services-card__caption title-s">Мерч с DTF-печатью</div>
+                  <div class="services-card__txt text-xs">Качественная печать на футболках, худи, кепках и фартуках</div>
+                </div>
+                <div class="services-card__img"><img src="files/img/services-6.webp" alt=""></div>
+              </a>
+              <a class="services__card services-card" href="services-inner.html">
+                <div class="services-card__content">
+                  <div class="services-card__caption title-s">Наружная реклама</div>
+                  <div class="services-card__txt text-xs">Баннеры, вывески, билборды, лайтбоксы</div>
+                </div>
+                <div class="services-card__img"><img src="files/img/services-3.webp" alt=""></div>
+              </a>
+              <a class="services__card services-card" href="services-inner.html">
+                <div class="services-card__content">
+                  <div class="services-card__caption title-s">Лазерная резка</div>
+                  <div class="services-card__txt text-xs">Акриловые таблички, награды</div>
+                </div>
+                <div class="services-card__img"><img src="files/img/services-4.webp" alt=""></div>
+              </a>
+              <a class="services__card services-card" href="services-inner.html">
+                <div class="services-card__content">
+                  <div class="services-card__caption title-s">Дизайнерские услуги</div>
+                  <div class="services-card__txt text-xs">Создадим продающий баннер, презентацию или полный брендбук — под любую задачу, быстро и со вкусом</div>
+                </div>
+                <div class="services-card__img"><img src="files/img/services-5.webp" alt=""></div>
+              </a>
+              <a class="services__card services-card" href="services-inner.html">
+                <div class="services-card__content">
+                  <div class="services-card__caption title-s">Сувениры</div>
+                  <div class="services-card__txt text-xs">Презентабельные и полезные сувениры: ручки, блокноты, флешки</div>
+                </div>
+                <div class="services-card__img"><img src="files/img/services-7.webp" alt=""></div>
+              </a>
+              <a class="services__card services-card" href="services-inner.html">
+                <div class="services-card__content">
+                  <div class="services-card__caption title-s">Печать золотой краской</div>
+                  <div class="services-card__txt text-xs">Для премиальной продукции</div>
+                </div>
+                <div class="services-card__img"><img src="files/img/services-8.webp" alt=""></div>
+              </a>
+              <a class="services__card services-card" href="services-inner.html">
+                <div class="services-card__content">
+                  <div class="services-card__caption title-s">Печать серебром</div>
+                  <div class="services-card__txt text-xs">Для премиальной продукции</div>
+                </div>
+                <div class="services-card__img"><img src="files/img/services-9.webp" alt=""></div>
+              </a>
+              <a class="services__card services-card" href="services-inner.html">
+                <div class="services-card__content">
+                  <div class="services-card__caption title-s">Упаковка</div>
+                  <div class="services-card__txt text-xs">Изготовление коробок и бумажных стаканчиков с фирменным стилем</div>
+                </div>
+                <div class="services-card__img"><img src="files/img/services-2.webp" alt=""></div>
+              </a>
+            </div>
+            <a href="services.html" class="services__button button button_primary button_center">Показать еще</a>
+          </div>
+        </div>
+      </section>
+      <section class="benefits">
+        <div class="container">
+          <div class="benefits__container">
+            <div class="benefits__heading heading">
+              <h2 class="benefits__title title-s text-up color-primary whitespace-nowrap">С нами понравится работать</h2>
+              <span class="line"></span>
+            </div>
+            <div class="benefits__cards">
+              <div class="benefits__card">
+                <div class="benefits__txt">Мы рассчитываем стоимость индивидуально — с учётом ваших задач и пожеланий. Вы платите только за то, что действительно нужно, без лишних расходов.</div>
+                <div class="benefits__caption">Персональный подход</div>
+              </div>
+              <div class="benefits__card">
+                <div class="benefits__txt">Работаем с лучшими поставщиками: Mondi (Австрия), Kurz (Германия), GMP (Южная Корея), Fedrigoni (Италия). Результат — прочная, приятная на ощупь и эстетичная продукция.</div>
+                <div class="benefits__caption">Качественные материалы</div>
+              </div>
+              <div class="benefits__card">
+                <div class="benefits__txt">Продумываем проект так, чтобы его можно было без проблем напечатать в любой типографии. Это экономит ваше время и делает процесс максимально удобным.</div>
+                <div class="benefits__caption">Дизайн, готовый к печати</div>
+              </div>
+              <div class="benefits__card">
+                <div class="benefits__txt">Используем только проверенную технику европейских, американских и японских производителей — это гарантия стабильного качества и точности.</div>
+                <div class="benefits__caption">Современное оборудование</div>
+              </div>
+              <div class="benefits__card">
+                <div class="benefits__txt">Ваш проект будет в надёжных руках — над ним работает команда опытных специалистов, которые знают, как довести дело до идеального результата.</div>
+                <div class="benefits__caption">Команда профессионалов</div>
+              </div>
+              <div class="benefits__card">
+                <div class="benefits__txt">Мы предлагаем гибкие условия — вы сами выбираете, как вам удобнее работать с нами. Пакеты услуг, прозрачные этапы, чёткие сроки.</div>
+                <div class="benefits__caption">Удобный формат сотрудничества</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="stages">
+        <div class="container">
+          <div class="stages__container">
+            <div class="stages__heading heading">
+              <h2 class="stages__title title-s text-up color-primary whitespace-nowrap">Стадии жизненного цикла</h2>
+              <span class="line"></span>
+            </div>
+            <div class="stages__wrap">
+              <div class="stages__left">
+                <h3 class="stages__caption title-xl">Стадии заказа</h3>
+                <div class="stages__desc text-m">Постарались организовать всё быстро и удобно</div>
+              </div>
+              <div class="stages__right">
+                <div class="stages__list">
+                  <div class="stages__item active">
+                    <div class="stages__txt"><span>1. Заявка</span></div>
+                    <img src="files/img/stages-1.webp" alt="">
+                  </div>
+                  <div class="stages__item">
+                    <div class="stages__txt"><span>2. Расчёт стоимости</span></div>
+                    <img src="files/img/stages-2.webp" alt="">
+                  </div>
+                  <div class="stages__item">
+                    <div class="stages__txt"><span>3. Оплата</span></div>
+                    <img src="files/img/stages-3.webp" alt="">
+                  </div>
+                  <div class="stages__item">
+                    <div class="stages__txt"><span>4. Проверка макета</span></div>
+                    <img src="files/img/stages-8.webp" alt="">
+                  </div>
+                  <div class="stages__item">
+                    <div class="stages__txt"><span>5. Допечатная подготовка</span></div>
+                    <img src="files/img/stages-4.webp" alt="">
+                  </div>
+                  <div class="stages__item">
+                    <div class="stages__txt"><span>6. Согласование</span></div>
+                    <img src="files/img/stages-5.webp" alt="">
+                  </div>
+                  <div class="stages__item">
+                    <div class="stages__txt"><span>7. Печать</span></div>
+                    <img src="files/img/stages-6.webp" alt="">
+                  </div>
+                  <div class="stages__item">
+                    <div class="stages__txt"><span>8. Постпечатная обработка</span></div>
+                    <img src="files/img/stages-7.webp" alt="">
+                  </div>
+                  <div class="stages__item">
+                    <div class="stages__txt"><span>9. Контроль качества</span></div>
+                    <img src="files/img/stages-8.webp" alt="">
+                  </div>
+                  <div class="stages__item">
+                    <div class="stages__txt"><span>10. Доставка/самовывоз</span></div>
+                    <img src="files/img/stages-9.webp" alt="">
+                  </div>
+                </div>
+                <div class="stages__box"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="faq">
+        <div class="container">
+          <div class="faq__container">
+            <div class="faq__heading heading">
+              <h2 class="faq__title title-s text-up color-primary whitespace-nowrap">Частые вопросы</h2>
+              <span class="line"></span>
+            </div>
+            <div class="faq__accordion accordion">
+              <div class="accordion__item">
+                <div class="accordion__head">
+                  <div class="accordion__caption title-s">Сколько стоит?</div>
+                  <div class="accordion__icon">
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="accordion__body color-grey">
+                  <p>Прайс-листа у нас нет. Каждый заказ просчитывается индивидуально, согласно Вашему запросу</p>
+                </div>
+              </div>
+              <div class="accordion__item">
+                <div class="accordion__head">
+                  <div class="accordion__caption title-s">Какие полиграфические услуги у Вас можно заказать?</div>
+                  <div class="accordion__icon">
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="accordion__body color-grey">
+                  <p>Мы предоставляем весь спектр полиграфических услуг. Ведь мы прекрасно понимаем насколько важно для нашего клиента его время и качество получаемых услуг.</p>
+                </div>
+              </div>
+              <div class="accordion__item">
+                <div class="accordion__head">
+                  <div class="accordion__caption title-s">Сколько времени длится заказ?</div>
+                  <div class="accordion__icon">
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="accordion__body color-grey">
+                  <p>Это зависит от типа и сложности заказа. В среднем на производства мы закладываем от 3-х рабочих дней. Естественно в наших же интересах и в интересах клиента выдать заказ раньше. Но в первую очередь мы придерживаемся качеству выпускаемой продукции.</p>
+                </div>
+              </div>
+              <div class="accordion__item">
+                <div class="accordion__head">
+                  <div class="accordion__caption title-s">Работаете ли с файлами клиента?</div>
+                  <div class="accordion__icon">
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="accordion__body color-grey">
+                  <p>Конечно. Мы работаем со многими компаниями, у которых в штате есть собственные дизайнеры. Однако нужно понимать , что рисовать дизайн, чтобы выглядело красиво и рисовать дизайн для дальнейшего производства это две разные вещи. И здесь мы предоставляем помощь нашим клиентам в этом вопросе.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="trust">
+        <div class="container">
+          <div class="trust__container">
+            <div class="trust__heading heading">
+              <h2 class="trust__title title-s text-up color-primary whitespace-nowrap">Нам доверяют</h2>
+              <span class="line"></span>
+            </div>
+            <div class="trust__slider">
+              <div class="swiper trustSwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="trust__grid">
+                      <!-- моб 8шт, комп 15шт -->
+                      <div class="trust__img"><img src="files/img/angus-BN5Sgfwf.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/attech-BoYrbgiG.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/bi-v5XoRy4J.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/GBG-CEmYYxwb.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/JFood-Cp4I_HY9.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/Marwin-L4465TQN.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/Rixos-DyYxWuri.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/Rupes-BZ3K_U3W.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/SANA-uw74ha9G.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/SVOYDOM-BGRoPeYc.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/Saad-cyf5_C4x.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/kazbeef-CdRE0dZ0.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/love-is-wedding-Rk9s8Gqn.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/niculin-CspxBlA_.svg" alt=""></div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="trust__grid">
+                      <!-- моб 8шт, комп 15шт -->
+                      <div class="trust__img"><img src="files/img/angus-BN5Sgfwf.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/attech-BoYrbgiG.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/bi-v5XoRy4J.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/GBG-CEmYYxwb.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/JFood-Cp4I_HY9.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/Marwin-L4465TQN.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/Rixos-DyYxWuri.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/Rupes-BZ3K_U3W.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/SANA-uw74ha9G.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/SVOYDOM-BGRoPeYc.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/Saad-cyf5_C4x.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/kazbeef-CdRE0dZ0.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/love-is-wedding-Rk9s8Gqn.svg" alt=""></div>
+                      <div class="trust__img"><img src="files/img/niculin-CspxBlA_.svg" alt=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="trust__navigation">
+              <div class="trust__button trust-prev">назад</div>
+              <span class="trust-line"></span>
+              <div class="trust-pagination"></div>
+              <span class="trust-line"></span>
+              <div class="trust__button trust-next">вперёд</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="reviews">
+        <div class="container">
+          <div class="reviews__container">
+            <div class="reviews__heading heading">
+              <h2 class="reviews__title title-s text-up color-primary whitespace-nowrap">Отзывы</h2>
+              <span class="line"></span>
+            </div>
+            <div class="reviews__slider">
+              <div class="swiper reviewsSwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="reviews__card">
+                      <div class="reviews__img"><img src="files/img/attech-BoYrbgiG.svg" alt=""></div>
+                      <div class="reviews__txt text-center">«Компания Attech выражает Вам благодарность за быстрое и качественное обслуживание! Особая благодарность менеджеру Алине! Быстро и чётко отработали заказ! Работы были сделаны качественно и в срок!!! Успехов и процветания Вашей команде!»</div>
+                      <div class="reviews__author title-s text-center">Алина Имашева</div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="reviews__card">
+                      <div class="reviews__img"><img src="files/img/azam.svg" alt=""></div>
+                      <div class="reviews__txt text-center">«Мы завод элеваторного оборудования AZAM. Работаем с ребятами много лет, никогда не подводили, даже, когда наши сроки "горели"! Вежливые менеджеры: Юлия, Андрей, Лаура, подскажут, сориентируют, всегда на связи! Печатаем журналы, брошюры, визитки, баннеры на выставку, растяжки, паспорты на наше оборудование, инструкции по эксплуатации. Благодарим команду за слаженную работу! Так держать, ребята!»</div>
+                      <div class="reviews__author title-s text-center">AZAM-KC Zernosushilnoe oborudovanie</div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="reviews__card">
+                      <div class="reviews__img"><img src="files/img/angus-BN5Sgfwf.svg" alt=""></div>
+                      <div class="reviews__txt text-center">«Наша компания уже достаточно долгое время сотрудничает с полиграфией RED PANDA. Всегда все заказы выполняются очень быстро и качественно!!! Отдельная благодарность менеджеру Лауре за оперативную и качественную работу. Надеемся на долгое сотрудничество!!! Успехов и процветания вашей компании!!!»</div>
+                      <div class="reviews__author title-s text-center">Республиканская палата Ангус Казахстана</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="reviews__navigation">
+              <div class="reviews__button reviews-prev">назад</div>
+              <div class="reviews-pagination"></div>
+              <div class="reviews__button reviews-next">вперёд</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="feedback">
+        <div class="container">
+          <div class="feedback__container">
+            <div class="feedback__heading heading">
+              <h2 class="feedback__title title-s text-up color-primary whitespace-nowrap">Обратная связь</h2>
+              <span class="line"></span>
+            </div>
+            <div class="feedback__wrap feedback__wrap_1">
+              <div class="feedback__img"><img src="files/img/Отдел качества.svg" alt=""></div>
+              <div class="feedback__caption text-center text-m">Если возникнут какие-либо проблемы с заказом, свяжитесь с отделом качества</div>
+              <div class="feedback__buttons">
+                <a class="feedback__button button button_dark">Написать</a>
+                <a class="feedback__button button button_outline">Позвонить</a>
+              </div>
+            </div>
+            <div class="feedback__wrap feedback__wrap_2">
+              <div class="feedback__img"><img src="files/img/Отзыв.svg" alt=""></div>
+              <div class="feedback__caption text-center text-m">Уже были нашим клиентом? <br> Будем рады,  если оставите отзыв о нашей работе</div>
+              <a class="feedback__button button button_dark">Оставить отзыв</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="calculation last-section">
+        <div class="container">
+          <div class="calculation__container">
+            <div class="calculation__heading heading">
+              <h2 class="calculation__title title-s text-up color-primary whitespace-nowrap">Заявка на расчёт</h2>
+              <span class="line"></span>
+            </div>
+            <div class="calculation__wrap">
+              <div class="calculation__left">
+                <h3 class="calculation__caption title-xl">Расчёт стоимости</h3>
+                <div class="calculation__desc text-m">С вами свяжется наш менеджер в ближайшее время. Спасибо, что обратились в наше печатное агентство!</div>
+                <div class="calculation__file">
+                  <label for="file-upload" class="upload-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="upload-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                    <span class="upload-text">Прикрепить макет</span></label>
+                  <input id="file-upload" type="file" class="hidden" multiple="">
+                  <p class="upload-caption"> до 10 файлов, не более 100 МБ </p>
+                </div>
+              </div>
+              <div class="calculation__right form">
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <div class="relative">
+                      <input id="name" type="text" class="form-input peer" placeholder=" " required>
+                      <label for="name" class="form-label">
+                        <span>Ваше имя</span>
+                      </label>
+                      <span class="input-border"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="relative">
+                      <input id="phone" type="tel" class="form-input peer" placeholder=" " required>
+                      <label for="phone" class="form-label">
+                        <span>Телефон</span>
+                      </label>
+                      <span class="input-border"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="relative">
+                      <input id="email" type="email" class="form-input peer" placeholder=" " required>
+                      <label for="email" class="form-label">
+                        <span>Email</span>
+                      </label>
+                      <span class="input-border"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="relative">
+                      <input id="company" type="text" class="form-input peer" placeholder=" ">
+                      <label for="company" class="form-label">
+                        <span>Компания</span>
+                      </label>
+                      <span class="input-border"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="relative">
+                      <textarea id="task" class="form-input peer" placeholder=" " required></textarea>
+                      <label for="task" class="form-label">
+                        <span>Опишите задачу</span>
+                      </label>
+                      <span class="input-border"></span>
+                    </div>
+                  </div>
+                  <button class="form-button button button_primary" type="submit" disabled>
+                    <span>Отправить заявку</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <!-- @@include('html/modal.html')  -->
+    @@include('html/footer.html') 
+    @@include('html/foot.html')
+  </body>
+</html>
