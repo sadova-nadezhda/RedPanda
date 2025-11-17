@@ -23,16 +23,16 @@
   <!-- FANCYBOX -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css?_v=20251117172224"
+    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css?_v=20251117183355"
   />
 
   <!-- TABBY -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/css/tabby-ui.min.css?_v=20251117172224">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/css/tabby-ui.min.css?_v=20251117183355">
 
   <!-- Swiper -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?_v=20251117172224" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?_v=20251117183355" />
 
-  <link rel="stylesheet" href="css/style.css?_v=20251117172224" />
+  <link rel="stylesheet" href="css/style.css?_v=20251117183355" />
 </head>
 
   <body>
@@ -318,14 +318,14 @@
                 Заполните форму, и мы свяжемся с вами для консультации и расчёта
                 стоимости вашего заказа.
               </div>
-              <a class="hero__btn button button_dark">
+              <a class="hero__btn button button_dark modal-btn" data-type="feedback">
                 Оставить заявку
               </a>
             </div>
             <a
               href="files/videos/hero.mp4"
               class="hero__video"
-              data-fancybox="hero-video"
+              data-fancybox
             >
               <video
                 autoplay
@@ -587,7 +587,10 @@
             <div class="search-wrapper">
               <form class="search-container">
                 <div class="search-input-wrapper">
-                  <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle data-v-08042829="" cx="11" cy="11" r="8"></circle><line data-v-08042829="" x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle data-v-08042829="" cx="11" cy="11" r="8"></circle>
+                    <line data-v-08042829="" x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
                   <input type="text" placeholder="Поиск в портфолио..." class="search-input" autocomplete="off">
                 </div>
                 <button type="button" class="search-button"> Найти </button>
@@ -950,14 +953,14 @@
               <div class="feedback__img"><img src="files/img/Отдел качества.svg" alt=""></div>
               <div class="feedback__caption text-center text-m">Если возникнут какие-либо проблемы с заказом, свяжитесь с отделом качества</div>
               <div class="feedback__buttons">
-                <a class="feedback__button button button_dark">Написать</a>
-                <a class="feedback__button button button_outline">Позвонить</a>
+                <a href="https://wa.me/77007257799" class="feedback__button button button_dark" target="_blank">Написать</a>
+                <a href="tel:+77007257799" class="feedback__button button button_outline">Позвонить</a>
               </div>
             </div>
             <div class="feedback__wrap feedback__wrap_2">
               <div class="feedback__img"><img src="files/img/Отзыв.svg" alt=""></div>
               <div class="feedback__caption text-center text-m">Уже были нашим клиентом? <br> Будем рады,  если оставите отзыв о нашей работе</div>
-              <a class="feedback__button button button_dark">Оставить отзыв</a>
+              <a href="https://2gis.kz/astana/firm/70000001067520759/tab/reviews" class="feedback__button button button_dark" target="_blank">Оставить отзыв</a>
             </div>
           </div>
         </div>
@@ -977,12 +980,12 @@
                   <label for="file-upload" class="upload-button">
                     <svg xmlns="http://www.w3.org/2000/svg" class="upload-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                     <span class="upload-text">Прикрепить макет</span></label>
-                  <input id="file-upload" type="file" class="hidden" multiple="">
+                  <input id="file-upload" type="file" class="hidden" multiple="" name="files[]" form="calc-form">
                   <p class="upload-caption"> до 10 файлов, не более 100 МБ </p>
                 </div>
               </div>
               <div class="calculation__right form">
-                <form autocomplete="off">
+                <form enctype="multipart/form-data" id="calc-form">
                   <div class="form-group">
                     <div class="relative">
                       <input id="name" type="text" class="form-input peer" placeholder=" " required>
@@ -1039,7 +1042,82 @@
       </section>
     </main>
     
-    
+    <div class="modals">
+  <div class="modal" data-type="feedback">
+    <div class="modal__container">
+      <button class="modal__close">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99992 11.1787L14.714 15.8927C15.0394 16.2182 15.567 16.2182 15.8925 15.8927C16.2179 15.5673 16.2179 15.0396 15.8925 14.7142L11.1784 10.0002L15.8925 5.28612C16.2179 4.96069 16.2179 4.43305 15.8925 4.10761C15.567 3.78218 15.0394 3.78218 14.714 4.10761L9.99992 8.82165L5.28587 4.1076C4.96043 3.78217 4.4328 3.78217 4.10736 4.1076C3.78192 4.43304 3.78192 4.96068 4.10736 5.28611L8.82141 10.0002L4.10736 14.7142C3.78192 15.0397 3.78192 15.5673 4.10736 15.8927C4.4328 16.2182 4.96043 16.2182 5.28587 15.8927L9.99992 11.1787Z" fill="#222222"/>
+        </svg>        
+      </button>
+      <div class="calculation__wrap">
+        <div class="calculation__left">
+          <h3 class="calculation__caption title-xl">Расчёт стоимости</h3>
+          <div class="calculation__desc text-m">С вами свяжется наш менеджер в ближайшее время. Спасибо, что обратились в наше печатное агентство!</div>
+          <div class="calculation__file">
+            <label for="file-upload" class="upload-button">
+              <svg xmlns="http://www.w3.org/2000/svg" class="upload-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+              <span class="upload-text">Прикрепить макет</span></label>
+            <input id="file-upload" type="file" class="hidden" multiple="" name="files[]" form="calc-form">
+            <p class="upload-caption"> до 10 файлов, не более 100 МБ </p>
+          </div>
+        </div>
+        <div class="calculation__right form">
+          <form enctype="multipart/form-data" id="calc-form">
+            <div class="form-group">
+              <div class="relative">
+                <input id="name" type="text" class="form-input peer" placeholder=" " required>
+                <label for="name" class="form-label">
+                  <span>Ваше имя</span>
+                </label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="relative">
+                <input id="phone" type="tel" class="form-input peer" placeholder=" " required>
+                <label for="phone" class="form-label">
+                  <span>Телефон</span>
+                </label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="relative">
+                <input id="email" type="email" class="form-input peer" placeholder=" " required>
+                <label for="email" class="form-label">
+                  <span>Email</span>
+                </label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="relative">
+                <input id="company" type="text" class="form-input peer" placeholder=" ">
+                <label for="company" class="form-label">
+                  <span>Компания</span>
+                </label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="relative">
+                <textarea id="task" class="form-input peer" placeholder=" " required></textarea>
+                <label for="task" class="form-label">
+                  <span>Опишите задачу</span>
+                </label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+            <button class="form-button button button_primary" type="submit" disabled>
+              <span>Отправить заявку</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
     <footer class="footer">
   <div class="container">
     <div class="footer__container">
@@ -1236,8 +1314,11 @@
 </div>
 
  
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20251117172224"></script>
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/js/tabby.polyfills.min.js?_v=20251117172224"></script>
-<script src="js/app.js?_v=20251117172224"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20251117183355"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js?_v=20251117183355"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js?_v=20251117183355"></script>
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/js/tabby.polyfills.min.js?_v=20251117183355"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js?_v=20251117183355"></script>
+<script src="js/app.js?_v=20251117183355"></script>
   </body>
 </html>

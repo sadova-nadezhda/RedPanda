@@ -1604,6 +1604,159 @@ window.addEventListener("load", function () {
 
   })();
 
+  // Animation
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".benefits__card", {
+    opacity: 0,
+    y: 40,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".benefits__cards",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    }
+  });
+
+  // Modals
+
+  (function () {
+    const modalWrapper = document.querySelector('.modals');
+    if (!modalWrapper) return;
+
+    const modals = Array.from(modalWrapper.querySelectorAll('.modal'));
+    const body = document.body;
+
+    const getModalByType = (type) =>
+      modalWrapper.querySelector(`.modal[data-type="${type}"]`);
+
+    const showWrapper = () => {
+      body.style.overflow = 'hidden';
+      modalWrapper.style.opacity = 1;
+      modalWrapper.style.pointerEvents = 'all';
+    };
+
+    const hideWrapper = () => {
+      body.style.overflow = '';
+      modalWrapper.style.opacity = 0;
+      modalWrapper.style.pointerEvents = 'none';
+    };
+
+    const openModal = (type) => {
+      // Скрыть все модалки
+      modals.forEach((m) => {
+        m.style.display = 'none';
+        m.style.removeProperty('transform');
+      });
+
+      const modal = getModalByType(type);
+      if (!modal) return;
+
+      modal.style.display = 'block';
+      showWrapper();
+
+      // Всегда анимация сверху
+      if (window.gsap) {
+        gsap.fromTo(
+          modal,
+          { y: '-100%' },
+          { y: '0%', duration: 0.5, ease: 'power3.out' }
+        );
+      }
+    };
+
+    const closeCurrentModal = () => {
+      const current = modals.find((m) => m.style.display !== 'none');
+
+      const finishClose = () => {
+        if (current) current.style.display = 'none';
+        hideWrapper();
+      };
+
+      if (current && window.gsap) {
+        gsap.to(current, {
+          y: '-100%',
+          duration: 0.4,
+          ease: 'power3.in',
+          onComplete: () => {
+            current.style.removeProperty('transform');
+            finishClose();
+          },
+        });
+      } else {
+        finishClose();
+      }
+    };
+
+    // Открытие по кнопкам .modal-btn
+    document.querySelectorAll('.modal-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const type = btn.dataset.type;
+        if (type) openModal(type);
+      });
+    });
+
+    // Закрытие по клику вне модалки или на крестик
+    modalWrapper.addEventListener('click', (e) => {
+      if (e.target === modalWrapper || e.target.closest('.modal__close')) {
+        closeCurrentModal();
+      }
+    });
+
+    // Закрытие по Escape
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalWrapper.style.pointerEvents === 'all') {
+        closeCurrentModal();
+      }
+    });
+  })();
+
+  // Fancybox
+
+  Fancybox.bind("[data-fancybox]", {
+    // Your custom options
+  });
+
+  // mask for phone
+
+  [].forEach.call( document.querySelectorAll('input[type="tel"]'), function(input) {
+    var keyCode;
+    function mask(event) {
+        event.keyCode && (keyCode = event.keyCode);
+        var pos = this.selectionStart;
+        if (pos < 3) event.preventDefault();
+        var matrix = "+7 (___) ___ ____",
+            i = 0,
+            def = matrix.replace(/\D/g, ""),
+            val = this.value.replace(/\D/g, ""),
+            new_value = matrix.replace(/[_\d]/g, function(a) {
+                return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+            });
+        i = new_value.indexOf("_");
+        if (i != -1) {
+            i < 5 && (i = 3);
+            new_value = new_value.slice(0, i)
+        }
+        var reg = matrix.substring(0, this.value.length).replace(/_+/g,
+            function(a) {
+                return "\\d{1," + a.length + "}"
+            }).replace(/[+()]/g, "\\$&");
+        reg = new RegExp("^" + reg + "$");
+        if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+        if (event.type == "blur" && this.value.length < 5)  this.value = ""
+    }
+
+    input.addEventListener("input", mask, false);
+    input.addEventListener("focus", mask, false);
+    input.addEventListener("blur", mask, false);
+    input.addEventListener("keydown", mask, false)
+
+  });
+
   // Tabs
 
   var tabs = new Tabby('[data-tabs]');

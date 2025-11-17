@@ -48,6 +48,9 @@
   }
   &__form {
     margin-top: calc(8 * var(--width-multiplier));
+    input, textarea, select {
+      color: var(--color-white);
+    }
   }
   .form-label {
     color: var(--color-gray);
