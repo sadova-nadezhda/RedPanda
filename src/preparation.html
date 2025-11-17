@@ -4,8 +4,49 @@
   <body>
     @@include('html/header.html')
 
+    <!-- <div class="on-page-menu">
+      <div class="menu-scroll-wrapper">
+        <ul>
+          <li>
+            <a href="#preparation">
+              <span class="label">Подготовка к печати</span>
+              <span class="dot" style="--stagger-delay: 0ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#templates">
+              <span class="label">Шаблоны</span>
+              <span class="dot" style="--stagger-delay: 80ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#dimensions" class="active">
+              <span class="label">Размеры</span>
+              <span class="dot" style="--stagger-delay: 160ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#requirements">
+              <span class="label">Требования к макетам</span>
+              <span class="dot" style="--stagger-delay: 240ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#palette">
+              <span class="label">Палитра Pantone</span>
+              <span class="dot" style="--stagger-delay: 320ms;"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+
     <main>
-      <section class="preparation first-section">
+      <section id="preparation" class="preparation first-section">
         <div class="container">
           <div class="preparation__container">
             <div class="preparation__heading heading">
@@ -23,7 +64,7 @@
           </div>
         </div>
       </section>
-      <section class="templates">
+      <section id="templates" class="templates">
         <div class="container">
           <div class="templates__container">
             <div class="templates__heading heading">
@@ -66,7 +107,7 @@
           </div>
         </div>
       </section>
-      <section class="dimensions">
+      <section id="dimensions" class="dimensions">
         <div class="container">
           <div class="dimensions__container">
             <div class="dimensions__heading heading">
@@ -142,7 +183,7 @@
           </div>
         </div>
       </section>
-      <section class="requirements">
+      <section id="requirements" class="requirements">
         <div class="container">
           <div class="requirements__container">
             <div class="requirements__heading heading">
@@ -201,7 +242,7 @@
           </div>
         </div>
       </section>
-      <section class="palette">
+      <section id="palette" class="palette">
         <div class="container">
           <div class="palette__container">
             <div class="palette__heading heading">
@@ -315,13 +356,13 @@
               Нет времени на подготовку файлов?<br>
               Оперативно сделаем за Вас!
             </div>
-            <a href="" class="connect__button button button_dark">Написать менеджеру</a>
+            <a class="connect__button button button_dark modal-btn" data-type="feedback">Написать менеджеру</a>
           </div>
         </div>
       </section>
     </main>
     
-    <!-- @@include('html/modal.html')  -->
+    @@include('html/modal.html') 
     @@include('html/footer.html') 
     @@include('html/foot.html')
   </body>

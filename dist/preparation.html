@@ -23,16 +23,16 @@
   <!-- FANCYBOX -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css?_v=20251117183355"
+    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css?_v=20251117195302"
   />
 
   <!-- TABBY -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/css/tabby-ui.min.css?_v=20251117183355">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/css/tabby-ui.min.css?_v=20251117195302">
 
   <!-- Swiper -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?_v=20251117183355" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?_v=20251117195302" />
 
-  <link rel="stylesheet" href="css/style.css?_v=20251117183355" />
+  <link rel="stylesheet" href="css/style.css?_v=20251117195302" />
 </head>
 
   <body>
@@ -302,8 +302,49 @@
   </div>
 <!-- HEADER -->
 
+    <!-- <div class="on-page-menu">
+      <div class="menu-scroll-wrapper">
+        <ul>
+          <li>
+            <a href="#preparation">
+              <span class="label">Подготовка к печати</span>
+              <span class="dot" style="--stagger-delay: 0ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#templates">
+              <span class="label">Шаблоны</span>
+              <span class="dot" style="--stagger-delay: 80ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#dimensions" class="active">
+              <span class="label">Размеры</span>
+              <span class="dot" style="--stagger-delay: 160ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#requirements">
+              <span class="label">Требования к макетам</span>
+              <span class="dot" style="--stagger-delay: 240ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#palette">
+              <span class="label">Палитра Pantone</span>
+              <span class="dot" style="--stagger-delay: 320ms;"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+
     <main>
-      <section class="preparation first-section">
+      <section id="preparation" class="preparation first-section">
         <div class="container">
           <div class="preparation__container">
             <div class="preparation__heading heading">
@@ -321,7 +362,7 @@
           </div>
         </div>
       </section>
-      <section class="templates">
+      <section id="templates" class="templates">
         <div class="container">
           <div class="templates__container">
             <div class="templates__heading heading">
@@ -364,7 +405,7 @@
           </div>
         </div>
       </section>
-      <section class="dimensions">
+      <section id="dimensions" class="dimensions">
         <div class="container">
           <div class="dimensions__container">
             <div class="dimensions__heading heading">
@@ -440,7 +481,7 @@
           </div>
         </div>
       </section>
-      <section class="requirements">
+      <section id="requirements" class="requirements">
         <div class="container">
           <div class="requirements__container">
             <div class="requirements__heading heading">
@@ -499,7 +540,7 @@
           </div>
         </div>
       </section>
-      <section class="palette">
+      <section id="palette" class="palette">
         <div class="container">
           <div class="palette__container">
             <div class="palette__heading heading">
@@ -613,13 +654,88 @@
               Нет времени на подготовку файлов?<br>
               Оперативно сделаем за Вас!
             </div>
-            <a href="" class="connect__button button button_dark">Написать менеджеру</a>
+            <a class="connect__button button button_dark modal-btn" data-type="feedback">Написать менеджеру</a>
           </div>
         </div>
       </section>
     </main>
     
-    
+    <div class="modals">
+  <div class="modal" data-type="feedback">
+    <div class="modal__container">
+      <button class="modal__close">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99992 11.1787L14.714 15.8927C15.0394 16.2182 15.567 16.2182 15.8925 15.8927C16.2179 15.5673 16.2179 15.0396 15.8925 14.7142L11.1784 10.0002L15.8925 5.28612C16.2179 4.96069 16.2179 4.43305 15.8925 4.10761C15.567 3.78218 15.0394 3.78218 14.714 4.10761L9.99992 8.82165L5.28587 4.1076C4.96043 3.78217 4.4328 3.78217 4.10736 4.1076C3.78192 4.43304 3.78192 4.96068 4.10736 5.28611L8.82141 10.0002L4.10736 14.7142C3.78192 15.0397 3.78192 15.5673 4.10736 15.8927C4.4328 16.2182 4.96043 16.2182 5.28587 15.8927L9.99992 11.1787Z" fill="#222222"/>
+        </svg>        
+      </button>
+      <div class="calculation__wrap">
+        <div class="calculation__left">
+          <h3 class="calculation__caption title-xl">Расчёт стоимости</h3>
+          <div class="calculation__desc text-m">С вами свяжется наш менеджер в ближайшее время. Спасибо, что обратились в наше печатное агентство!</div>
+          <div class="calculation__file">
+            <label for="file-upload" class="upload-button">
+              <svg xmlns="http://www.w3.org/2000/svg" class="upload-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+              <span class="upload-text">Прикрепить макет</span></label>
+            <input id="file-upload" type="file" class="hidden" multiple="" name="files[]" form="calc-form">
+            <p class="upload-caption"> до 10 файлов, не более 100 МБ </p>
+          </div>
+        </div>
+        <div class="calculation__right form">
+          <form enctype="multipart/form-data" id="calc-form">
+            <div class="form-group">
+              <div class="relative">
+                <input id="name" type="text" class="form-input peer" placeholder=" " required>
+                <label for="name" class="form-label">
+                  <span>Ваше имя</span>
+                </label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="relative">
+                <input id="phone" type="tel" class="form-input peer" placeholder=" " required>
+                <label for="phone" class="form-label">
+                  <span>Телефон</span>
+                </label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="relative">
+                <input id="email" type="email" class="form-input peer" placeholder=" " required>
+                <label for="email" class="form-label">
+                  <span>Email</span>
+                </label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="relative">
+                <input id="company" type="text" class="form-input peer" placeholder=" ">
+                <label for="company" class="form-label">
+                  <span>Компания</span>
+                </label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="relative">
+                <textarea id="task" class="form-input peer" placeholder=" " required></textarea>
+                <label for="task" class="form-label">
+                  <span>Опишите задачу</span>
+                </label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+            <button class="form-button button button_primary" type="submit" disabled>
+              <span>Отправить заявку</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
     <footer class="footer">
   <div class="container">
     <div class="footer__container">
@@ -816,11 +932,11 @@
 </div>
 
  
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20251117183355"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js?_v=20251117183355"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js?_v=20251117183355"></script>
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/js/tabby.polyfills.min.js?_v=20251117183355"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js?_v=20251117183355"></script>
-<script src="js/app.js?_v=20251117183355"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20251117195302"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js?_v=20251117195302"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js?_v=20251117195302"></script>
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/js/tabby.polyfills.min.js?_v=20251117195302"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js?_v=20251117195302"></script>
+<script src="js/app.js?_v=20251117195302"></script>
   </body>
 </html>
