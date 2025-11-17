@@ -278,6 +278,113 @@ window.addEventListener("load", function () {
     });
   });
 
+  // Interactive Image
+
+  const images = document.querySelectorAll(".interactive-image");
+
+  images.forEach(img => {
+    const container = img.parentElement; // .stock-card__img
+
+    container.style.perspective = "1000px";
+
+    container.addEventListener("mousemove", (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const halfW = rect.width / 2;
+      const halfH = rect.height / 2;
+
+      const rotateX = ((y - halfH) / halfH) * 10;
+      const rotateY = -((x - halfW) / halfW) * 10;
+
+      img.style.transform =
+        `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05) translateZ(0)`;
+    });
+
+    container.addEventListener("mouseleave", () => {
+      img.style.transform =
+        `rotateX(0) rotateY(0) scale(1) translateZ(0)`;
+    });
+  });
+
+  // Widjet
+
+   const fab = document.querySelector(".fab-container");
+  if (!fab) return;
+
+  // Колонка с дополнительными кнопками
+  const listContainer = fab.querySelector(".flex");
+  if (!listContainer) return;
+
+  // Все "дочерние" .group внутри колонки — это 4 экшн-кнопки
+  const actionRows = Array.from(
+    listContainer.querySelectorAll(".group")
+  );
+
+  const mainButton = fab.querySelector(".fab-main");
+  if (!mainButton) return;
+
+  const mainGroup = mainButton.closest(".group");
+  const mainTooltipSpan = mainGroup?.querySelector(".fab-tooltip span");
+
+  let isOpen = false;
+  const transitionDuration = 200;
+
+  actionRows.forEach((row, index) => {
+    row.style.display = "none";
+    row.style.opacity = "0";
+    row.style.transform = "translateY(10px)";
+    row.style.transition = "opacity 0.2s ease, transform 0.2s ease";
+  });
+
+  function setOpen(open) {
+    isOpen = open;
+
+    actionRows.forEach((row) => {
+      if (open) {
+        row.style.display = "flex";
+        requestAnimationFrame(() => {
+          row.style.opacity = "1";
+          row.style.transform = "translateY(0)";
+        });
+      } else {
+        row.style.opacity = "0";
+        row.style.transform = "translateY(10px)";
+        setTimeout(() => {
+          if (!isOpen) {
+            row.style.display = "none";
+          }
+        }, transitionDuration);
+      }
+    });
+
+    if (mainTooltipSpan) {
+      mainTooltipSpan.textContent = open
+        ? "Закрыть"
+        : "Связаться с нами";
+    }
+  }
+
+  setOpen(false);
+
+  mainButton.addEventListener("click", () => {
+    setOpen(!isOpen);
+  });
+
+  const requestRow = actionRows[0];
+  if (requestRow) {
+    const requestBtn = requestRow.querySelector("button.fab-item");
+    if (requestBtn) {
+      requestBtn.addEventListener("click", () => {
+        if (typeof window.openCalculationFormPopup === "function") {
+          window.openCalculationFormPopup();
+        }
+        setOpen(false);
+      });
+    }
+  }
+
   // Pallete
 
   const pantoneColors = [{
@@ -1128,336 +1235,336 @@ window.addEventListener("load", function () {
   }];
 
   // ================== УТИЛИТЫ ДЛЯ ЦВЕТА ==================
-function hslToRgb(h, s, l) {
-  let r, g, b;
-  if (s === 0) {
-    r = g = b = l;
-  } else {
-    const hue2rgb = (p, q, t) => {
-      if (t < 0) t += 1;
-      if (t > 1) t -= 1;
-      if (t < 1/6) return p + (q - p) * 6 * t;
-      if (t < 1/2) return q;
-      if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
-      return p;
-    };
-    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-    const p = 2 * l - q;
-    r = hue2rgb(p, q, h + 1/3);
-    g = hue2rgb(p, q, h);
-    b = hue2rgb(p, q, h - 1/3);
-  }
-  return [
-    Math.round(r * 255),
-    Math.round(g * 255),
-    Math.round(b * 255)
-  ];
-}
-
-function rgbToLab(rgb) {
-  let [r, g, b] = rgb.map(v => v / 255);
-  r = r > 0.04045 ? Math.pow((r + 0.055) / 1.055, 2.4) : r / 12.92;
-  g = g > 0.04045 ? Math.pow((g + 0.055) / 1.055, 2.4) : g / 12.92;
-  b = b > 0.04045 ? Math.pow((b + 0.055) / 1.055, 2.4) : b / 12.92;
-
-  let x = (r * 0.4124 + g * 0.3576 + b * 0.1805) / 0.95047;
-  let y = (r * 0.2126 + g * 0.7152 + b * 0.0722) / 1.00000;
-  let z = (r * 0.0193 + g * 0.1192 + b * 0.9505) / 1.08883;
-
-  x = x > 0.008856 ? Math.pow(x, 1/3) : (7.787 * x) + (16/116);
-  y = y > 0.008856 ? Math.pow(y, 1/3) : (7.787 * y) + (16/116);
-  z = z > 0.008856 ? Math.pow(z, 1/3) : (7.787 * z) + (16/116);
-
-  return [
-    (116 * y) - 16,
-    500 * (x - y),
-    200 * (y - z)
-  ];
-}
-
-function deltaE2000(lab1, lab2) {
-  const [L1, a1, b1] = lab1;
-  const [L2, a2, b2] = lab2;
-
-  const avgLp = (L1 + L2) / 2;
-  const C1 = Math.sqrt(a1 * a1 + b1 * b1);
-  const C2 = Math.sqrt(a2 * a2 + b2 * b2);
-  const avgC = (C1 + C2) / 2;
-
-  const G = 0.5 * (1 - Math.sqrt(Math.pow(avgC, 7) / (Math.pow(avgC, 7) + Math.pow(25, 7))));
-  const a1p = (1 + G) * a1;
-  const a2p = (1 + G) * a2;
-  const C1p = Math.sqrt(a1p * a1p + b1 * b1);
-  const C2p = Math.sqrt(a2p * a2p + b2 * b2);
-  const avgCp = (C1p + C2p) / 2;
-
-  let h1p = Math.atan2(b1, a1p) * 180 / Math.PI;
-  if (h1p < 0) h1p += 360;
-  let h2p = Math.atan2(b2, a2p) * 180 / Math.PI;
-  if (h2p < 0) h2p += 360;
-
-  const dLp = L2 - L1;
-  const dCp = C2p - C1p;
-
-  let dhp;
-  if (C1p * C2p === 0) {
-    dhp = 0;
-  } else {
-    if (Math.abs(h2p - h1p) <= 180) {
-      dhp = h2p - h1p;
-    } else if (h2p - h1p > 180) {
-      dhp = h2p - h1p - 360;
+  function hslToRgb(h, s, l) {
+    let r, g, b;
+    if (s === 0) {
+      r = g = b = l;
     } else {
-      dhp = h2p - h1p + 360;
+      const hue2rgb = (p, q, t) => {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1/6) return p + (q - p) * 6 * t;
+        if (t < 1/2) return q;
+        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+        return p;
+      };
+      const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+      const p = 2 * l - q;
+      r = hue2rgb(p, q, h + 1/3);
+      g = hue2rgb(p, q, h);
+      b = hue2rgb(p, q, h - 1/3);
     }
+    return [
+      Math.round(r * 255),
+      Math.round(g * 255),
+      Math.round(b * 255)
+    ];
   }
-  const dHp = 2 * Math.sqrt(C1p * C2p) * Math.sin((dhp * Math.PI / 180) / 2);
 
-  const avgLp2 = (L1 + L2) / 2;
-  const avgCp2 = (C1p + C2p) / 2;
+  function rgbToLab(rgb) {
+    let [r, g, b] = rgb.map(v => v / 255);
+    r = r > 0.04045 ? Math.pow((r + 0.055) / 1.055, 2.4) : r / 12.92;
+    g = g > 0.04045 ? Math.pow((g + 0.055) / 1.055, 2.4) : g / 12.92;
+    b = b > 0.04045 ? Math.pow((b + 0.055) / 1.055, 2.4) : b / 12.92;
 
-  let avgHp;
-  if (C1p * C2p === 0) {
-    avgHp = h1p + h2p;
-  } else {
-    if (Math.abs(h1p - h2p) <= 180) {
-      avgHp = (h1p + h2p) / 2;
-    } else if (h1p + h2p < 360) {
-      avgHp = (h1p + h2p + 360) / 2;
+    let x = (r * 0.4124 + g * 0.3576 + b * 0.1805) / 0.95047;
+    let y = (r * 0.2126 + g * 0.7152 + b * 0.0722) / 1.00000;
+    let z = (r * 0.0193 + g * 0.1192 + b * 0.9505) / 1.08883;
+
+    x = x > 0.008856 ? Math.pow(x, 1/3) : (7.787 * x) + (16/116);
+    y = y > 0.008856 ? Math.pow(y, 1/3) : (7.787 * y) + (16/116);
+    z = z > 0.008856 ? Math.pow(z, 1/3) : (7.787 * z) + (16/116);
+
+    return [
+      (116 * y) - 16,
+      500 * (x - y),
+      200 * (y - z)
+    ];
+  }
+
+  function deltaE2000(lab1, lab2) {
+    const [L1, a1, b1] = lab1;
+    const [L2, a2, b2] = lab2;
+
+    const avgLp = (L1 + L2) / 2;
+    const C1 = Math.sqrt(a1 * a1 + b1 * b1);
+    const C2 = Math.sqrt(a2 * a2 + b2 * b2);
+    const avgC = (C1 + C2) / 2;
+
+    const G = 0.5 * (1 - Math.sqrt(Math.pow(avgC, 7) / (Math.pow(avgC, 7) + Math.pow(25, 7))));
+    const a1p = (1 + G) * a1;
+    const a2p = (1 + G) * a2;
+    const C1p = Math.sqrt(a1p * a1p + b1 * b1);
+    const C2p = Math.sqrt(a2p * a2p + b2 * b2);
+    const avgCp = (C1p + C2p) / 2;
+
+    let h1p = Math.atan2(b1, a1p) * 180 / Math.PI;
+    if (h1p < 0) h1p += 360;
+    let h2p = Math.atan2(b2, a2p) * 180 / Math.PI;
+    if (h2p < 0) h2p += 360;
+
+    const dLp = L2 - L1;
+    const dCp = C2p - C1p;
+
+    let dhp;
+    if (C1p * C2p === 0) {
+      dhp = 0;
     } else {
-      avgHp = (h1p + h2p - 360) / 2;
+      if (Math.abs(h2p - h1p) <= 180) {
+        dhp = h2p - h1p;
+      } else if (h2p - h1p > 180) {
+        dhp = h2p - h1p - 360;
+      } else {
+        dhp = h2p - h1p + 360;
+      }
     }
-  }
+    const dHp = 2 * Math.sqrt(C1p * C2p) * Math.sin((dhp * Math.PI / 180) / 2);
 
-  const T = 1 -
-    0.17 * Math.cos((avgHp - 30) * Math.PI / 180) +
-    0.24 * Math.cos((2 * avgHp) * Math.PI / 180) +
-    0.32 * Math.cos((3 * avgHp + 6) * Math.PI / 180) -
-    0.20 * Math.cos((4 * avgHp - 63) * Math.PI / 180);
+    const avgLp2 = (L1 + L2) / 2;
+    const avgCp2 = (C1p + C2p) / 2;
 
-  const dRo = 30 * Math.exp(-Math.pow((avgHp - 275) / 25, 2));
-  const RC = 2 * Math.sqrt(Math.pow(avgCp2, 7) / (Math.pow(avgCp2, 7) + Math.pow(25, 7)));
-  const RT = -RC * Math.sin(2 * dRo * Math.PI / 180);
-
-  const SL = 1 + (0.015 * Math.pow(avgLp2 - 50, 2)) / Math.sqrt(20 + Math.pow(avgLp2 - 50, 2));
-  const SC = 1 + 0.045 * avgCp2;
-  const SH = 1 + 0.015 * avgCp2 * T;
-
-  const dE = Math.sqrt(
-    Math.pow(dLp / SL, 2) +
-    Math.pow(dCp / SC, 2) +
-    Math.pow(dHp / SH, 2) +
-    RT * (dCp / SC) * (dHp / SH)
-  );
-
-  return dE;
-}
-
-function cieDistance(rgb1, rgb2) {
-  const lab1 = rgbToLab(rgb1);
-  const lab2 = rgbToLab(rgb2);
-  return deltaE2000(lab1, lab2);
-}
-
-// ================== ОСНОВНОЙ СКРИПТ ДЛЯ ТВОЕЙ РАЗМЕТКИ ==================
-(function () {
-  const palette = document.querySelector('.palette');
-  if (!palette) return;
-
-  const rows = palette.querySelectorAll('.palette__row');
-  if (rows.length < 2) return;
-
-  const colorRow = rows[0]; // первый градиент (цветовой)
-  const grayRow  = rows[1]; // второй (серый)
-
-  const colorThumb = colorRow.querySelector('.slider-thumb');
-  let grayThumb = grayRow.querySelector('.slider-thumb');
-  if (!grayThumb) {
-    grayThumb = document.createElement('div');
-    grayThumb.className = 'slider-thumb';
-    grayRow.appendChild(grayThumb);
-  }
-
-  const cardsContainer = palette.querySelector('.palette__cards');
-
-  // Фильтр Pantone для "серых"
-  const grayPantones = pantoneColors.filter(c => {
-    const [r, g, b] = c.rgb.split(',').map(Number);
-    const max = Math.max(r, g, b);
-    const min = Math.min(r, g, b);
-    return (max - min) < 25;
-  });
-
-  // Состояние
-  let mode = 'color'; // 'color' | 'gray'
-  let currentHSL = { h: 0, s: 1, l: 0.5 };
-  let currentGray = null;
-  const copied = {}; // key: `${name}-hex/rgb/cmyk`
-
-  function getNearestColors() {
-    if (mode === 'color' && currentHSL) {
-      const rgb = hslToRgb(currentHSL.h, currentHSL.s, currentHSL.l);
-      const arr = pantoneColors.map(c => ({
-        ...c,
-        distance: cieDistance(
-          rgb,
-          c.rgb.split(',').map(Number)
-        )
-      }));
-      arr.sort((a, b) => a.distance - b.distance);
-      return arr.slice(0, 4);
+    let avgHp;
+    if (C1p * C2p === 0) {
+      avgHp = h1p + h2p;
+    } else {
+      if (Math.abs(h1p - h2p) <= 180) {
+        avgHp = (h1p + h2p) / 2;
+      } else if (h1p + h2p < 360) {
+        avgHp = (h1p + h2p + 360) / 2;
+      } else {
+        avgHp = (h1p + h2p - 360) / 2;
+      }
     }
 
-    if (mode === 'gray' && currentGray !== null) {
-      const val = Math.round(currentGray * 255);
-      const targetL = rgbToLab([val, val, val])[0];
-      const arr = grayPantones.map(c => {
-        const rgb = c.rgb.split(',').map(Number);
-        const L = rgbToLab(rgb)[0];
-        return {
+    const T = 1 -
+      0.17 * Math.cos((avgHp - 30) * Math.PI / 180) +
+      0.24 * Math.cos((2 * avgHp) * Math.PI / 180) +
+      0.32 * Math.cos((3 * avgHp + 6) * Math.PI / 180) -
+      0.20 * Math.cos((4 * avgHp - 63) * Math.PI / 180);
+
+    const dRo = 30 * Math.exp(-Math.pow((avgHp - 275) / 25, 2));
+    const RC = 2 * Math.sqrt(Math.pow(avgCp2, 7) / (Math.pow(avgCp2, 7) + Math.pow(25, 7)));
+    const RT = -RC * Math.sin(2 * dRo * Math.PI / 180);
+
+    const SL = 1 + (0.015 * Math.pow(avgLp2 - 50, 2)) / Math.sqrt(20 + Math.pow(avgLp2 - 50, 2));
+    const SC = 1 + 0.045 * avgCp2;
+    const SH = 1 + 0.015 * avgCp2 * T;
+
+    const dE = Math.sqrt(
+      Math.pow(dLp / SL, 2) +
+      Math.pow(dCp / SC, 2) +
+      Math.pow(dHp / SH, 2) +
+      RT * (dCp / SC) * (dHp / SH)
+    );
+
+    return dE;
+  }
+
+  function cieDistance(rgb1, rgb2) {
+    const lab1 = rgbToLab(rgb1);
+    const lab2 = rgbToLab(rgb2);
+    return deltaE2000(lab1, lab2);
+  }
+
+  // ================== ОСНОВНОЙ СКРИПТ ДЛЯ ТВОЕЙ РАЗМЕТКИ ==================
+  (function () {
+    const palette = document.querySelector('.palette');
+    if (!palette) return;
+
+    const rows = palette.querySelectorAll('.palette__row');
+    if (rows.length < 2) return;
+
+    const colorRow = rows[0]; // первый градиент (цветовой)
+    const grayRow  = rows[1]; // второй (серый)
+
+    const colorThumb = colorRow.querySelector('.slider-thumb');
+    let grayThumb = grayRow.querySelector('.slider-thumb');
+    if (!grayThumb) {
+      grayThumb = document.createElement('div');
+      grayThumb.className = 'slider-thumb';
+      grayRow.appendChild(grayThumb);
+    }
+
+    const cardsContainer = palette.querySelector('.palette__cards');
+
+    // Фильтр Pantone для "серых"
+    const grayPantones = pantoneColors.filter(c => {
+      const [r, g, b] = c.rgb.split(',').map(Number);
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      return (max - min) < 25;
+    });
+
+    // Состояние
+    let mode = 'color'; // 'color' | 'gray'
+    let currentHSL = { h: 0, s: 1, l: 0.5 };
+    let currentGray = null;
+    const copied = {}; // key: `${name}-hex/rgb/cmyk`
+
+    function getNearestColors() {
+      if (mode === 'color' && currentHSL) {
+        const rgb = hslToRgb(currentHSL.h, currentHSL.s, currentHSL.l);
+        const arr = pantoneColors.map(c => ({
           ...c,
-          distance: Math.abs(L - targetL)
-        };
-      });
-      arr.sort((a, b) => a.distance - b.distance);
-      return arr.slice(0, 4);
-    }
-
-    return [];
-  }
-
-  function renderCards() {
-    const list = getNearestColors();
-    cardsContainer.innerHTML = '';
-
-    list.forEach(c => {
-      const keyHex  = `${c.name}-hex`;
-      const keyRgb  = `${c.name}-rgb`;
-      const keyCmyk = `${c.name}-cmyk`;
-
-      const card = document.createElement('div');
-      card.className = 'palette__card palette-card';
-
-      const colorBlock = document.createElement('div');
-      colorBlock.className = 'palette__color';
-      colorBlock.style.backgroundColor = c.hex;
-
-      const group = document.createElement('div');
-      group.className = 'palette-card__group';
-
-      const caption = document.createElement('div');
-      caption.className = 'palette-card__caption title-s';
-      caption.textContent = c.name;
-
-      const listEl = document.createElement('div');
-      listEl.className = 'palette-card__list';
-
-      function makeRow(label, value, type, key) {
-        const item = document.createElement('div');
-        item.className = 'palette-card__item';
-        item.innerHTML = label + ' ';
-
-        const span = document.createElement('span');
-        span.dataset.value = value;
-        span.dataset.name = c.name;
-        span.dataset.type = type;
-
-        if (copied[key]) {
-          span.textContent = 'Скопировано';
-          span.classList.add('copied');
-        } else {
-          span.textContent = value;
-        }
-
-        item.appendChild(span);
-        return item;
+          distance: cieDistance(
+            rgb,
+            c.rgb.split(',').map(Number)
+          )
+        }));
+        arr.sort((a, b) => a.distance - b.distance);
+        return arr.slice(0, 4);
       }
 
-      listEl.appendChild(makeRow('HEX:',  c.hex,  'hex',  keyHex));
-      listEl.appendChild(makeRow('RGB:',  c.rgb,  'rgb',  keyRgb));
-      listEl.appendChild(makeRow('CMYK:', c.cmyk, 'cmyk', keyCmyk));
+      if (mode === 'gray' && currentGray !== null) {
+        const val = Math.round(currentGray * 255);
+        const targetL = rgbToLab([val, val, val])[0];
+        const arr = grayPantones.map(c => {
+          const rgb = c.rgb.split(',').map(Number);
+          const L = rgbToLab(rgb)[0];
+          return {
+            ...c,
+            distance: Math.abs(L - targetL)
+          };
+        });
+        arr.sort((a, b) => a.distance - b.distance);
+        return arr.slice(0, 4);
+      }
 
-      group.appendChild(caption);
-      group.appendChild(listEl);
-
-      card.appendChild(colorBlock);
-      card.appendChild(group);
-
-      cardsContainer.appendChild(card);
-    });
-  }
-
-  // ------ Слайдеры ------
-  let draggingColor = false;
-  let draggingGray  = false;
-
-  function setColorByClientX(clientX) {
-    const rect = colorRow.getBoundingClientRect();
-    const t = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-    mode = 'color';
-    currentHSL = { h: t, s: 1, l: 0.5 };
-    currentGray = null;
-
-    if (colorThumb) {
-      colorThumb.style.left = (t * 100) + '%';
+      return [];
     }
-    renderCards();
-  }
 
-  function setGrayByClientX(clientX) {
-    const rect = grayRow.getBoundingClientRect();
-    const t = Math.max(0, Math.min(1, 1 - (clientX - rect.left) / rect.width));
-    mode = 'gray';
-    currentGray = t;
-    currentHSL = null;
+    function renderCards() {
+      const list = getNearestColors();
+      cardsContainer.innerHTML = '';
 
-    grayThumb.style.left = ((1 - t) * 100) + '%';
-    renderCards();
-  }
+      list.forEach(c => {
+        const keyHex  = `${c.name}-hex`;
+        const keyRgb  = `${c.name}-rgb`;
+        const keyCmyk = `${c.name}-cmyk`;
 
-  colorRow.addEventListener('mousedown', (e) => {
-    draggingColor = true;
-    setColorByClientX(e.clientX);
-  });
+        const card = document.createElement('div');
+        card.className = 'palette__card palette-card';
 
-  grayRow.addEventListener('mousedown', (e) => {
-    draggingGray = true;
-    setGrayByClientX(e.clientX);
-  });
+        const colorBlock = document.createElement('div');
+        colorBlock.className = 'palette__color';
+        colorBlock.style.backgroundColor = c.hex;
 
-  window.addEventListener('mousemove', (e) => {
-    if (draggingColor) setColorByClientX(e.clientX);
-    if (draggingGray)  setGrayByClientX(e.clientX);
-  });
+        const group = document.createElement('div');
+        group.className = 'palette-card__group';
 
-  window.addEventListener('mouseup', () => {
-    draggingColor = false;
-    draggingGray  = false;
-  });
+        const caption = document.createElement('div');
+        caption.className = 'palette-card__caption title-s';
+        caption.textContent = c.name;
 
-  // ------ Копирование по клику на значение ------
-  cardsContainer.addEventListener('click', (e) => {
-    const span = e.target.closest('.palette-card__item span');
-    if (!span || !navigator.clipboard) return;
+        const listEl = document.createElement('div');
+        listEl.className = 'palette-card__list';
 
-    const value = span.dataset.value;
-    const name  = span.dataset.name;
-    const type  = span.dataset.type;
-    const key   = `${name}-${type}`;
+        function makeRow(label, value, type, key) {
+          const item = document.createElement('div');
+          item.className = 'palette-card__item';
+          item.innerHTML = label + ' ';
 
-    navigator.clipboard.writeText(value).then(() => {
-      copied[key] = true;
+          const span = document.createElement('span');
+          span.dataset.value = value;
+          span.dataset.name = c.name;
+          span.dataset.type = type;
+
+          if (copied[key]) {
+            span.textContent = 'Скопировано';
+            span.classList.add('copied');
+          } else {
+            span.textContent = value;
+          }
+
+          item.appendChild(span);
+          return item;
+        }
+
+        listEl.appendChild(makeRow('HEX:',  c.hex,  'hex',  keyHex));
+        listEl.appendChild(makeRow('RGB:',  c.rgb,  'rgb',  keyRgb));
+        listEl.appendChild(makeRow('CMYK:', c.cmyk, 'cmyk', keyCmyk));
+
+        group.appendChild(caption);
+        group.appendChild(listEl);
+
+        card.appendChild(colorBlock);
+        card.appendChild(group);
+
+        cardsContainer.appendChild(card);
+      });
+    }
+
+    // ------ Слайдеры ------
+    let draggingColor = false;
+    let draggingGray  = false;
+
+    function setColorByClientX(clientX) {
+      const rect = colorRow.getBoundingClientRect();
+      const t = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+      mode = 'color';
+      currentHSL = { h: t, s: 1, l: 0.5 };
+      currentGray = null;
+
+      if (colorThumb) {
+        colorThumb.style.left = (t * 100) + '%';
+      }
       renderCards();
-      setTimeout(() => {
-        delete copied[key];
-        renderCards();
-      }, 2000);
-    });
-  });
+    }
 
-  const rect = colorRow.getBoundingClientRect();
-  const startX = rect.left + rect.width * (30 / 360);
-  setColorByClientX(startX);
+    function setGrayByClientX(clientX) {
+      const rect = grayRow.getBoundingClientRect();
+      const t = Math.max(0, Math.min(1, 1 - (clientX - rect.left) / rect.width));
+      mode = 'gray';
+      currentGray = t;
+      currentHSL = null;
+
+      grayThumb.style.left = ((1 - t) * 100) + '%';
+      renderCards();
+    }
+
+    colorRow.addEventListener('mousedown', (e) => {
+      draggingColor = true;
+      setColorByClientX(e.clientX);
+    });
+
+    grayRow.addEventListener('mousedown', (e) => {
+      draggingGray = true;
+      setGrayByClientX(e.clientX);
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (draggingColor) setColorByClientX(e.clientX);
+      if (draggingGray)  setGrayByClientX(e.clientX);
+    });
+
+    window.addEventListener('mouseup', () => {
+      draggingColor = false;
+      draggingGray  = false;
+    });
+
+    // ------ Копирование по клику на значение ------
+    cardsContainer.addEventListener('click', (e) => {
+      const span = e.target.closest('.palette-card__item span');
+      if (!span || !navigator.clipboard) return;
+
+      const value = span.dataset.value;
+      const name  = span.dataset.name;
+      const type  = span.dataset.type;
+      const key   = `${name}-${type}`;
+
+      navigator.clipboard.writeText(value).then(() => {
+        copied[key] = true;
+        renderCards();
+        setTimeout(() => {
+          delete copied[key];
+          renderCards();
+        }, 2000);
+      });
+    });
+
+    const rect = colorRow.getBoundingClientRect();
+    const startX = rect.left + rect.width * (30 / 360);
+    setColorByClientX(startX);
 
   })();
 

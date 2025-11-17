@@ -23,16 +23,16 @@
   <!-- FANCYBOX -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css?_v=20251117155014"
+    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css?_v=20251117164749"
   />
 
   <!-- TABBY -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/css/tabby-ui.min.css?_v=20251117155014">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/css/tabby-ui.min.css?_v=20251117164749">
 
   <!-- Swiper -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?_v=20251117155014" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?_v=20251117164749" />
 
-  <link rel="stylesheet" href="css/style.css?_v=20251117155014" />
+  <link rel="stylesheet" href="css/style.css?_v=20251117164749" />
 </head>
 
   <body>
@@ -312,13 +312,13 @@
             </div>
             <div class="stock__cards">
               <div class="stock__card stock-card">
-                <div class="stock-card__img"><img src="files/img/stock-1.png" alt=""></div>
+                <a href="" class="stock-card__img interactive-image" download><img src="files/img/stock-1.png" alt=""></a>
                 <div class="stock-card__caption title-m text-center">Каталог сувенирной продукции</div>
                 <div class="stock-card__txt color-grey text-center">Ознакомьтесь с нашим полным каталогом сувенирной продукции.</div>
                 <a href="" class="stock-card__button button button_dark button_center" download>Скачать каталог</a>
               </div>
               <div class="stock__card stock-card">
-                <div class="stock-card__img"><img src="files/img/stock-2.png" alt=""></div>
+                <a href="" class="stock-card__img interactive-image" download><img src="files/img/stock-2.png" alt=""></a>
                 <div class="stock-card__caption title-m text-center">Каталог для бизнеса</div>
                 <div class="stock-card__txt color-grey text-center">Наш полный каталог продукции для вашего бизнеса.</div>
                 <a href="" class="stock-card__button button button_dark button_center" download>Скачать каталог</a>
@@ -468,9 +468,66 @@
     </div>
   </div>
 </footer>
+
+<div class="fab-container hidden lg-custom:flex">
+  <div class="flex flex-col items-center gap-2">
+
+    <!-- Оставить заявку -->
+    <div class="relative flex items-center group" style="display: none;">
+      <div class="fab-tooltip hidden md:block">
+        <span>Оставить заявку</span>
+      </div>
+      <button aria-label="Оставить заявку" class="fab-item bg-panda-black" style="transition-delay: 0ms;">
+        <img src="files/img/fab-2.svg" alt="" class="fab-icon">
+      </button>
+    </div>
+
+    <!-- WhatsApp -->
+    <div class="relative flex items-center group" style="display: none;">
+      <div class="fab-tooltip hidden md:block">
+        <span>Написать в WhatsApp</span>
+      </div>
+      <a href="https://wa.me/77007257799" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp" class="fab-item bg-panda-black" style="transition-delay: 50ms;">
+        <img src="files/img/fab-3.svg" alt="" class="fab-icon">
+      </a>
+    </div>
+
+    <!-- Email -->
+    <div class="relative flex items-center group" style="display: none;">
+      <div class="fab-tooltip hidden md:block">
+        <span>Написать на почту</span>
+      </div>
+      <a href="mailto:infoprint@redpanda.kz" target="_blank" rel="noopener noreferrer" aria-label="Написать на почту" class="fab-item bg-panda-black" style="transition-delay: 100ms;">
+        <img src="files/img/fab-4.svg" alt="" class="fab-icon">
+      </a>
+    </div>
+
+    <!-- Позвонить -->
+    <div class="relative flex items-center group" style="display: none;">
+      <div class="fab-tooltip hidden md:block">
+        <span>Позвонить нам</span>
+      </div>
+      <a href="tel:+77007257799" target="_blank" rel="noopener noreferrer" aria-label="Позвонить нам" class="fab-item bg-panda-black" style="transition-delay: 150ms;">
+        <img src="files/img/fab-5.svg" alt="" class="fab-icon">
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Главная кнопка -->
+  <div class="relative flex items-center group">
+    <div class="fab-tooltip hidden md:block">
+      <span>Связаться с нами</span>
+    </div>
+    <button class="fab-main bg-dark-gray hover:bg-panda-black">
+      <img src="files/img/fab-1.svg" alt="Открыть" class="fab-main-icon">
+    </button>
+  </div>
+</div>
+
  
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20251117155014"></script>
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/js/tabby.polyfills.min.js?_v=20251117155014"></script>
-<script src="js/app.js?_v=20251117155014"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20251117164749"></script>
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/js/tabby.polyfills.min.js?_v=20251117164749"></script>
+<script src="js/app.js?_v=20251117164749"></script>
   </body>
 </html>

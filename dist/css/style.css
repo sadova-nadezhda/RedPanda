@@ -997,10 +997,6 @@ h6 {
   gap: calc(8 * var(--width-multiplier));
 }
 
-.form .relative {
-  position: relative;
-}
-
 .form-input {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1134,8 +1130,16 @@ h6 {
   text-align: center;
 }
 
+.relative {
+  position: relative;
+}
+
 .flex {
   display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .items-center {
@@ -1731,6 +1735,7 @@ h6 {
 }
 
 .stock-card__img {
+  display: block;
   height: calc(290 * var(--width-multiplier));
   margin-bottom: calc(20 * var(--width-multiplier));
   border-radius: calc(12 * var(--width-multiplier));
@@ -2403,6 +2408,26 @@ h6 {
   border-left: 0;
 }
 
+.connect__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(24 * var(--width-multiplier));
+  text-align: center;
+}
+
+.connect__img {
+  width: calc(80 * var(--width-multiplier));
+  height: calc(80 * var(--width-multiplier));
+}
+
+.connect__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .calculation__wrap {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2465,6 +2490,117 @@ h6 {
   background: url(../files/img/list-icon.svg) center/contain no-repeat;
 }
 
+.fab-container {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 10000;
+}
+
+.fab-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 9999px;
+  background-color: var(--color-dark);
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: bottom;
+  cursor: pointer;
+}
+
+.fab-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.fab-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  border: none;
+  color: var(--color-white);
+  background-color: #8f8f8f;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fab-main-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.fab-tooltip {
+  position: absolute;
+  right: 100%;
+  margin-right: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  border-radius: 0.375rem;
+  white-space: nowrap;
+  font-family: Gilroy-SemiBold, sans-serif;
+  font-size: 0.875rem;
+  opacity: 0;
+  transform: translate(0.625rem);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1019607843);
+}
+
+.group:hover .fab-tooltip {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.fab-tooltip :after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 0.375rem;
+  border-color: transparent transparent transparent var(--color-white);
+}
+
+.fab-list-enter-active,
+.fab-list-leave-active {
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fab-list-enter-from,
+.fab-list-leave-to {
+  opacity: 0;
+  transform: translateY(0.9375rem) scale(0.8);
+}
+
+.icon-fade-enter-active,
+.icon-fade-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icon-fade-enter-from {
+  opacity: 0;
+  transform: rotate(-45deg) scale(0.5);
+}
+
+.icon-fade-leave-to {
+  opacity: 0;
+  transform: rotate(45deg) scale(0.5);
+}
+
 @media (min-width: 640px) {
   .palette__cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2508,6 +2644,10 @@ h6 {
 
   .palette__cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .fab-container {
+    display: flex;
   }
 }
 
@@ -3029,6 +3169,32 @@ h6 {
 
   .calculation {
     background-color: var(--color-white);
+  }
+
+  .fab-container {
+    bottom: 1.1rem;
+    right: 1.1rem;
+    gap: 0.825rem;
+  }
+
+  .fab-main {
+    width: 3.3rem;
+    height: 3.3rem;
+  }
+
+  .fab-item {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .fab-main-icon {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
+
+  .fab-icon {
+    width: 1.32rem;
+    height: 1.32rem;
   }
 }
 
