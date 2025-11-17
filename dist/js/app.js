@@ -207,6 +207,41 @@ window.addEventListener("load", function () {
     },
   });
 
+  var historySwiper = new Swiper(".historySwiper", {
+    spaceBetween: 0,
+    slidesPerView: 3,
+    watchSlidesProgress: true,
+    breakpoints: {
+      768: {
+        slidesPerView: 5,
+      }
+    }
+  });
+  var historySwiper2 = new Swiper(".historySwiper2", {
+    spaceBetween: 16,
+    autoHeight: true,
+    // navigation: {
+    //   nextEl: ".history-next",
+    //   prevEl: ".history-prev",
+    // },
+    thumbs: {
+      swiper: historySwiper,
+    },
+  });
+
+  // History
+
+  document.querySelectorAll('.history__cards').forEach(cardsContainer => {
+    const cards = cardsContainer.querySelectorAll('.history__card');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+      });
+    });
+  });
+
   // Stages
 
   const items = document.querySelectorAll('.stages__item');
@@ -242,4 +277,8 @@ window.addEventListener("load", function () {
       }
     });
   });
+
+  // Tabs
+
+  var tabs = new Tabby('[data-tabs]');
 });

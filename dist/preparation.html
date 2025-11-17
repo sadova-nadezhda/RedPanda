@@ -23,20 +23,16 @@
   <!-- FANCYBOX -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css?_v=20251114183453"
+    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css?_v=20251117134854"
   />
 
   <!-- TABBY -->
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby@12.0.0/dist/css/tabby-ui.min.css?_v=20251114183453"
-  />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/css/tabby-ui.min.css?_v=20251117134854">
 
   <!-- Swiper -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?_v=20251114183453" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?_v=20251117134854" />
 
-  <link rel="stylesheet" href="css/style.css?_v=20251114183453" />
+  <link rel="stylesheet" href="css/style.css?_v=20251117134854" />
 </head>
 
   <body>
@@ -314,6 +310,14 @@
               <h2 class="preparation__title title-s text-up color-primary whitespace-nowrap">Подготовка к печати</h2>
               <span class="line"></span>
             </div>
+            <div class="preparation__cards stock__cards">
+              <div class="preparation__card stock-card">
+                <div class="stock-card__img"><img src="files/img/preparation-1.png" alt=""></div>
+                <div class="stock-card__caption title-m text-center">Подготовка к печати</div>
+                <div class="stock-card__txt color-grey text-center">Мы подготовили для Вас презентацию по подготовке к печати</div>
+                <a href="" class="stock-card__button button button_dark button_center" download>Скачать презентацию</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -323,6 +327,39 @@
             <div class="templates__heading heading">
               <h2 class="templates__title title-s text-up color-primary whitespace-nowrap">Шаблоны</h2>
               <span class="line"></span>
+            </div>
+            <div class="templates__tabs">
+              <ul data-tabs class="tabs">
+                <li><a data-tabby-default href="#business-cards">Визитки</a></li>
+              </ul>
+              <div id="business-cards">
+                <div class="templates__cards">
+                  <div class="templates__card">
+                    <div class="templates__img"><img src="files/img/templates-1.png" alt=""></div>
+                    <div class="templates__caption">90 × 50 мм</div>
+                    <a href="" class="templates__button button button_dark" data-tooltip="Corel .CDR" download>
+                      <div class="button__wrapper">
+                        <div class="text">Скачать</div>
+                        <div class="icon">
+                          <svg data-v-12457935="" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path data-v-12457935="" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"></path></svg>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="templates__card">
+                    <div class="templates__img"><img src="files/img/templates-2.png" alt=""></div>
+                    <div class="templates__caption">85 × 55 мм</div>
+                    <a href="" class="templates__button button button_dark" data-tooltip="Corel .CDR" download>
+                      <div class="button__wrapper">
+                        <div class="text">Скачать</div>
+                        <div class="icon">
+                          <svg data-v-12457935="" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path data-v-12457935="" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"></path></svg>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -343,6 +380,55 @@
             <div class="requirements__heading heading">
               <h2 class="requirements__title title-s text-up color-primary whitespace-nowrap">Требования к макетам</h2>
               <span class="line"></span>
+            </div>
+            <div class="requirements__wrap">
+              <div class="requirements__row">
+                <div class="requirements__caption title-s">Формат файла</div>
+                <div class="requirements__txt color-grey">
+                  <p>Макет желательно присылать в PDF. Если конвертации в PDF нет, допускается присылать макет в программах, где он был разработан (AI, CDR, PSD). Если макет был разработан в онлайн-редакторах (Figma, Canva), рекомендуется прикладывать ссылку для возможной корректировки.</p>
+                </div>
+              </div>
+              <div class="requirements__row">
+                <div class="requirements__caption title-s">Отступы</div>
+                <div class="requirements__txt color-grey">
+                  <p>Необходимо во всех дизайн-макетах оставлять отступы с фоном по периметру по 3 мм для обреза. Например, если вы делаете визитку размером 90x50 мм, то размер макета с вылетами должен быть 96x56 мм. Отступ содержимого (текста, изображений) от края реза должен составлять от 5 мм.</p>
+                </div>
+                <div class="requirements__img"><img src="files/img/requirements-1.png" alt=""></div>
+              </div>
+              <div class="requirements__row">
+                <div class="requirements__caption title-s">Цвета</div>
+                <div class="requirements__txt color-grey">
+                  <p>Желательно отправлять файлы на печать в цветовой модели CMYK. Если вы работаете в программе, где нет цветовой модели CMYK, то старайтесь использовать цвета из палитры PANTONE. В таком случае, при работе в цветовой модели RGB (Figma, Canva), при использовании цветов PANTONE вы будете видеть макет почти таким же, каким он получится после печати.</p>
+                </div>
+              </div>
+              <div class="requirements__row">
+                <div class="requirements__caption title-s">Шрифты</div>
+                <div class="requirements__txt color-grey">
+                  <div> Шрифты необходимо перевести в кривые.<br>
+                    <div class="flex items-center gap-2">
+                      <span>Corel Draw:</span>
+                      <div class="flex items-center gap-1"><kbd class="kbd">Ctrl</kbd><span>+</span><kbd class="kbd">Q</kbd></div>
+                    </div>
+                    <div class="flex items-center gap-2"><span>Illustrator/Figma:</span><div class="flex items-center gap-1"><kbd class="kbd">Ctrl</kbd><span>+</span><kbd class="kbd">Shift</kbd><span>+</span><kbd class="kbd">O</kbd></div></div>
+                  </div>
+                  <p>Либо отправить шрифты нашему менеджеру, для избежания ситуаций, когда программа может поменять шрифт, если его нет в системе.</p>
+                </div>
+              </div>
+              <div class="requirements__row">
+                <div class="requirements__caption title-s">Графические элементы</div>
+                <div class="requirements__txt color-grey">
+                  <p>Вектор — лучший выбор. Для четкой печати желательно использовать логотипы и иконки в векторном формате (SVG, AI, EPS, CDR). Векторные изображения печатаются без искажений и потери качества.</p>
+                  <p>1 мм при 300 DPI = 12 пикселей. Если вы делаете дизайн в программе, которая выдает размер только в пикселях (Figma, Canva), то нужно учитывать, что для 1 мм физического размера (при качественной печати 300 DPI) необходимо 12 пикселей.</p>
+                </div>
+              </div>
+              <div class="requirements__row">
+                <div class="requirements__caption title-s">Эффекты и прочее</div>
+                <div class="requirements__txt color-grey">
+                  <p>Тени, градиенты, прозрачность должны быть растрированы.<br>
+                    Линии должны иметь видимую толщину, от 0.2 pt.<br>
+                    В макете не должно быть лишних элементов, чтобы они случайно не оказались на печати.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -499,7 +585,8 @@
   </div>
 </footer>
  
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20251114183453"></script>
-<script src="js/app.js?_v=20251114183453"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20251117134854"></script>
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/js/tabby.polyfills.min.js?_v=20251117134854"></script>
+<script src="js/app.js?_v=20251117134854"></script>
   </body>
 </html>
