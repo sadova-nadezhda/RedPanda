@@ -278,6 +278,42 @@ window.addEventListener("load", function () {
     });
   });
 
+  // Letters
+
+  const letters = document.querySelectorAll('.products__letter');
+  const cells = document.querySelectorAll('.products__cell');
+  const lettersWrap = document.querySelector('.products__letters');
+
+  // берём название услуги из ячейки
+  const getProductName = (cell) => {
+    const titleSpan = cell.querySelector('a span');
+    return titleSpan ? titleSpan.textContent.trim() : '';
+  };
+
+  const clearHighlight = () => {
+    cells.forEach(cell => cell.classList.remove('is-highlighted'));
+  };
+
+  letters.forEach(letterEl => {
+    const letter = letterEl.textContent.trim().toUpperCase();
+
+    letterEl.addEventListener('mouseenter', () => {
+      clearHighlight();
+
+      cells.forEach(cell => {
+        const name = getProductName(cell).toUpperCase();
+        if (name.startsWith(letter)) {
+          cell.classList.add('is-highlighted');
+        }
+      });
+    });
+  });
+
+  // когда уводим мышь с блока букв — убираем подсветку
+  if (lettersWrap) {
+    lettersWrap.addEventListener('mouseleave', clearHighlight);
+  }
+
   // Interactive Image
 
   const images = document.querySelectorAll(".interactive-image");
