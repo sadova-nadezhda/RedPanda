@@ -1231,7 +1231,6 @@ h1, h2, h3, h4, h5, h6 {
       flex-direction: column;
       gap: calc(8 * var(--width-multiplier));
       padding: calc(12 * var(--width-multiplier)) calc(8 * var(--width-multiplier));
-      background-color: var(--color-white);
     }
     &__caption {
       font-weight: 600;
