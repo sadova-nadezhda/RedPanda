@@ -4,8 +4,28 @@
   <body>
     @@include('html/header.html')
 
+    <div class="on-page-menu animate-in">
+      <div class="menu-scroll-wrapper">
+        <ul>
+          <li>
+            <a href="#design">
+              <span class="label">Дизайн</span>
+              <span class="dot" style="--stagger-delay: 0ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#calculation">
+              <span class="label">Заявка на расчёт</span>
+              <span class="dot" style="--stagger-delay: 80ms;"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <main>
-      <section class="design first-section">
+      <section id="design" class="design first-section">
         <div class="container">
           <div class="design__container">
             <div class="design__heading heading">
@@ -81,7 +101,7 @@
           </div>
         </div>
       </section>
-      <section class="calculation last-section">
+      <section id="calculation" class="calculation last-section">
         <div class="container">
           <div class="calculation__container">
             <div class="calculation__heading heading">

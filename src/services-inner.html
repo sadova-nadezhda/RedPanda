@@ -4,6 +4,19 @@
   <body>
     @@include('html/header.html')
 
+    <div class="on-page-menu animate-in">
+      <div class="menu-scroll-wrapper">
+        <ul>
+          <li>
+            <a href="#services">
+              <span class="label">Что печатаем</span>
+              <span class="dot" style="--stagger-delay: 0ms;"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <main>
       <section class="services-hero">
         <div class="container">
@@ -13,7 +26,7 @@
           </div>
         </div>
       </section>
-      <section class="services-inner last-section">
+      <section id="services" class="services-inner last-section">
         <div class="container">
           <div class="services-inner__container">
             <div class="services-inner__heading heading">
@@ -78,7 +91,7 @@
               </div>
             </div>
             <!-- для моб версии -->
-            <!-- <button class="services-inner__button button button_primary button_center">Показать еще</button> -->
+            <!-- <button class="services-inner__button button button_primary button_center show-more">Показать еще</button> -->
           </div>
         </div>
       </section>

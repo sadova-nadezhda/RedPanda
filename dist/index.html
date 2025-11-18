@@ -23,16 +23,16 @@
   <!-- FANCYBOX -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css?_v=20251117195302"
+    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css?_v=20251118110734"
   />
 
   <!-- TABBY -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/css/tabby-ui.min.css?_v=20251117195302">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/css/tabby-ui.min.css?_v=20251118110734">
 
   <!-- Swiper -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?_v=20251117195302" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?_v=20251118110734" />
 
-  <link rel="stylesheet" href="css/style.css?_v=20251117195302" />
+  <link rel="stylesheet" href="css/style.css?_v=20251118110734" />
 </head>
 
   <body>
@@ -302,6 +302,75 @@
   </div>
 <!-- HEADER -->
 
+    <div class="on-page-menu animate-in">
+      <div class="menu-scroll-wrapper">
+        <ul>
+          <li>
+            <a href="#products">
+              <span class="label">Все виды продукции</span>
+              <span class="dot" style="--stagger-delay: 0ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#services">
+              <span class="label">Наши услуги</span>
+              <span class="dot" style="--stagger-delay: 80ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#benefits" class="active">
+              <span class="label">С нами понравится работать</span>
+              <span class="dot" style="--stagger-delay: 160ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#stages">
+              <span class="label">Стадии жизненного цикла</span>
+              <span class="dot" style="--stagger-delay: 240ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#faq">
+              <span class="label">Частые вопросы</span>
+              <span class="dot" style="--stagger-delay: 320ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#trust">
+              <span class="label">Нам доверяют</span>
+              <span class="dot" style="--stagger-delay: 400ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#reviews">
+              <span class="label">Отзывы</span>
+              <span class="dot" style="--stagger-delay: 480ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#feedback">
+              <span class="label">Обратная связь</span>
+              <span class="dot" style="--stagger-delay: 560ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#calculation">
+              <span class="label">Заявка на расчёт</span>
+              <span class="dot" style="--stagger-delay: 640ms;"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <main>
       <section class="hero first-section">
         <div class="container">
@@ -352,7 +421,7 @@
           </div>
         </div>
       </section>
-      <section class="products">
+      <section id="products" class="products">
         <div class="container">
           <div class="products__container">
             <div class="products__heading heading">
@@ -599,7 +668,7 @@
           </div>
         </div>
       </section>
-      <section class="services">
+      <section id="services" class="services">
         <div class="container">
           <div class="services__container">
             <div class="services__heading heading">
@@ -682,7 +751,7 @@
           </div>
         </div>
       </section>
-      <section class="benefits">
+      <section id="benefits" class="benefits">
         <div class="container">
           <div class="benefits__container">
             <div class="benefits__heading heading">
@@ -718,7 +787,7 @@
           </div>
         </div>
       </section>
-      <section class="stages">
+      <section id="stages" class="stages">
         <div class="container">
           <div class="stages__container">
             <div class="stages__heading heading">
@@ -779,7 +848,7 @@
           </div>
         </div>
       </section>
-      <section class="faq">
+      <section id="faq" class="faq">
         <div class="container">
           <div class="faq__container">
             <div class="faq__heading heading">
@@ -839,7 +908,7 @@
           </div>
         </div>
       </section>
-      <section class="trust">
+      <section id="trust" class="trust">
         <div class="container">
           <div class="trust__container">
             <div class="trust__heading heading">
@@ -900,7 +969,7 @@
           </div>
         </div>
       </section>
-      <section class="reviews">
+      <section id="reviews" class="reviews">
         <div class="container">
           <div class="reviews__container">
             <div class="reviews__heading heading">
@@ -942,7 +1011,7 @@
           </div>
         </div>
       </section>
-      <section class="feedback">
+      <section id="feedback" class="feedback">
         <div class="container">
           <div class="feedback__container">
             <div class="feedback__heading heading">
@@ -965,7 +1034,7 @@
           </div>
         </div>
       </section>
-      <section class="calculation last-section">
+      <section id="calculation" class="calculation last-section">
         <div class="container">
           <div class="calculation__container">
             <div class="calculation__heading heading">
@@ -1314,11 +1383,11 @@
 </div>
 
  
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20251117195302"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js?_v=20251117195302"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js?_v=20251117195302"></script>
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/js/tabby.polyfills.min.js?_v=20251117195302"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js?_v=20251117195302"></script>
-<script src="js/app.js?_v=20251117195302"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20251118110734"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js?_v=20251118110734"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js?_v=20251118110734"></script>
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/js/tabby.polyfills.min.js?_v=20251118110734"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js?_v=20251118110734"></script>
+<script src="js/app.js?_v=20251118110734"></script>
   </body>
 </html>

@@ -2340,66 +2340,76 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .on-page-menu {
-    position: fixed;
-    top: 50%;
-    right: .5rem;
-    transform: translateY(-50%);
-    z-index: 99;
-    align-items: flex-start;
-    gap: .5rem;
-    opacity: 0;
-    pointer-events: none;
+  position: fixed;
+  top: 50%;
+  right: .5rem;
+  transform: translateY(-50%);
+  z-index: 99;
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+
+  opacity: 1;
+  pointer-events: auto;
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
+
 .on-page-menu.is-visible {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .menu-scroll-wrapper {
-    max-height: calc(100vh - 10rem);
-    overflow: hidden;
+  max-height: calc(100vh - 10rem);
+  overflow: hidden;
 }
 
 .on-page-menu ul {
-    list-style: none;
-    padding: .5rem;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 1rem;
+  list-style: none;
+  padding: .5rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
 }
 
 .on-page-menu li {
-    opacity: 1;
+  opacity: 1;
 }
 
 .on-page-menu a {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    text-decoration: none;
-    font-size: .875rem;
-    font-weight: 500;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-decoration: none;
+  font-size: .875rem;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .label {
-    opacity: 0;
-    transition: opacity .3s ease;
-    background-color: #fcfaf9;
-    padding: .25rem .75rem;
-    border-radius: 1rem;
-    margin-right: 1rem;
-    white-space: nowrap;
-    box-shadow: 0 1px 3px #0000001a;
-    color: #6d635f;
+  opacity: 0;
+  transition: opacity .3s ease;
+  background-color: #fcfaf9;
+  padding: .25rem .75rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px #0000001a;
+  color: #6d635f;
+}
+
+.on-page-menu:hover .label {
+  opacity: 1;
 }
 
 .label.label-visible {
-    opacity: 1;
+  opacity: 1;
 }
 
 .dot {
@@ -2410,62 +2420,62 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   transition: all .3s cubic-bezier(.175,.885,.32,1.275);
   flex-shrink: 0;
+
+  /* старт как в Vue — ноль, анимация включается классом .animate-in */
   transform: scale(0);
 }
 
 .on-page-menu.is-resetting .dot {
-    transition: none;
+  transition: none;
 }
 
 .on-page-menu.animate-in .dot {
-    animation: pop-in .5s cubic-bezier(.175,.885,.32,1.275) forwards;
-    animation-delay: var(--stagger-delay);
+  animation: pop-in .5s cubic-bezier(.175,.885,.32,1.275) forwards;
+  animation-delay: var(--stagger-delay);
 }
 
 .on-page-menu a:hover .dot,
 .on-page-menu a.active .dot {
-    transform: scale(1.75);
+  transform: scale(1.75);
 }
 
 .scrollbar-track {
-    width: 4px;
-    height: 100%;
-    max-height: calc(100vh - 10rem);
-    background-color: transparent;
-    border-radius: 2px;
-    position: relative;
-    cursor: pointer;
-    transition: background-color .2s ease;
+  width: 4px;
+  height: 100%;
+  max-height: calc(100vh - 10rem);
+  background-color: transparent;
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color .2s ease;
 }
 
 .on-page-menu:hover .scrollbar-track {
-    background-color: #dcd6d280;
+  background-color: #dcd6d280;
 }
 
 .scrollbar-thumb {
-    width: 100%;
-    background-color: #c4b8b1;
-    border-radius: 2px;
-    position: absolute;
-    top: 0;
-    cursor: grab;
-    transition: background-color .2s ease;
+  width: 100%;
+  background-color: #c4b8b1;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  cursor: grab;
+  transition: background-color .2s ease;
 }
 
 .scrollbar-thumb:hover {
-    background-color: #a1928a;
+  background-color: #a1928a;
 }
 
 @keyframes pop-in {
   0% {
-      transform: scale(0)
+    transform: scale(0);
   }
-
   60% {
-      transform: scale(1.8)
+    transform: scale(1.8);
   }
-
-  to {
-      transform: scale(1)
+  100% {
+    transform: scale(1);
   }
 }

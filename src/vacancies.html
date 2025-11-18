@@ -4,8 +4,28 @@
   <body>
     @@include('html/header.html')
 
+    <div class="on-page-menu animate-in">
+      <div class="menu-scroll-wrapper">
+        <ul>
+          <li>
+            <a href="#vacancies">
+              <span class="label">Вакансии</span>
+              <span class="dot" style="--stagger-delay: 0ms;"></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#calculation">
+              <span class="label">Кадровый резерв</span>
+              <span class="dot" style="--stagger-delay: 80ms;"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <main>
-      <section class="vacancies first-section">
+      <section id="vacancies" class="vacancies first-section">
         <div class="container">
           <div class="vacancies__container">
             <div class="vacancies__heading heading">
@@ -74,11 +94,11 @@
           </div>
         </div>
       </section>
-      <section class="calculation reserve last-section">
+      <section id="calculation" class="calculation reserve last-section">
         <div class="container">
           <div class="calculation__container reserve__container">
             <div class="calculation__heading heading">
-              <h2 class="calculation__title title-s text-up color-primary whitespace-nowrap">Заявка на расчёт</h2>
+              <h2 class="calculation__title title-s text-up color-primary whitespace-nowrap">Кадровый резерв</h2>
               <span class="line"></span>
             </div>
             <div class="calculation__wrap reserve__wrap">

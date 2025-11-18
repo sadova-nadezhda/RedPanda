@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @font-face {
   font-family: Gilroy;
   font-display: swap;
@@ -69,6 +71,7 @@
 html {
   height: 100%;
   scroll-behavior: smooth;
+  scroll-padding-top: calc(50 * var(--width-multiplier));
   font-size: calc(16 * var(--width-multiplier));
   font-weight: 400;
   line-height: 140%;
@@ -2945,10 +2948,11 @@ h6 {
   right: 0.5rem;
   transform: translateY(-50%);
   z-index: 99;
+  display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .on-page-menu.is-visible {
@@ -2998,6 +3002,10 @@ h6 {
   color: #6d635f;
 }
 
+.on-page-menu:hover .label {
+  opacity: 1;
+}
+
 .label.label-visible {
   opacity: 1;
 }
@@ -3010,6 +3018,7 @@ h6 {
   border-radius: 50%;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   flex-shrink: 0;
+  /* старт как в Vue — ноль, анимация включается классом .animate-in */
   transform: scale(0);
 }
 
@@ -3065,7 +3074,7 @@ h6 {
     transform: scale(1.8);
   }
 
-  to {
+  100% {
     transform: scale(1);
   }
 }
@@ -3686,6 +3695,10 @@ h6 {
   .modal__container {
     padding: calc(16 * var(--width-multiplier));
     padding-top: calc(32 * var(--width-multiplier));
+  }
+
+  .on-page-menu {
+    display: none;
   }
 }
 
