@@ -3242,7 +3242,7 @@ h6 {
 
 @media (max-width: 767px) {
   :root {
-    --width-base: 370;
+    --width-base: 375;
     --width-current: 100vmin;
   }
 
