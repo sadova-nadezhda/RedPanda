@@ -2118,7 +2118,7 @@ h6 {
   position: absolute;
   top: 0;
   right: 0;
-  height: calc(440 * var(--width-multiplier));
+  height: calc(400 * var(--width-multiplier));
   width: calc(50% - 27 * var(--width-multiplier));
   -o-object-fit: cover;
      object-fit: cover;

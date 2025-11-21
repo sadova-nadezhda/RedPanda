@@ -1475,7 +1475,7 @@ h1, h2, h3, h4, h5, h6 {
       position: absolute;
       top: 0;
       right: 0;
-      height: calc(440 * var(--width-multiplier));
+      height: calc(400 * var(--width-multiplier));
       width: calc(50% - calc(27 * var(--width-multiplier)));
       object-fit: cover;
       border-radius: calc(16 * var(--width-multiplier));
