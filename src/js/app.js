@@ -1721,6 +1721,46 @@ window.addEventListener("load", function () {
     // Your custom options
   });
 
+  // calibration
+
+  (function () {
+    // Размер банковской карты в мм
+    const CARD_WIDTH_MM  = 85.6;
+    const CARD_HEIGHT_MM = 53.98;
+
+    const wrap  = document.querySelector('.calibration__wrap');
+    if (!wrap) return;
+
+    const card  = wrap.querySelector('.calibration-card');
+    const range = wrap.querySelector('input[type="range"]');
+    const btnSave   = wrap.querySelector('[data-calibration-save]');
+    const btnCancel = wrap.querySelector('[data-calibration-cancel]');
+
+    if (!card || !range) return;
+
+    function updateCardSize() {
+      const widthPx = Number(range.value);
+      const heightPx = widthPx / CARD_WIDTH_MM * CARD_HEIGHT_MM;
+
+      card.style.width  = widthPx + 'px';
+      card.style.height = heightPx + 'px';
+    }
+
+    (function initRange() {
+      const DPI = 96;
+      const logicalWidthPx = CARD_WIDTH_MM / 25.4 * DPI;
+      const min = Number(range.min);
+      const max = Number(range.max);
+
+      const clamped = Math.max(min, Math.min(max, logicalWidthPx));
+      range.value = clamped;
+      updateCardSize();
+    })();
+
+    range.addEventListener('input', updateCardSize);
+
+  })();
+
   // mask for phone
 
   [].forEach.call( document.querySelectorAll('input[type="tel"]'), function(input) {

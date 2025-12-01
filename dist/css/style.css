@@ -3079,6 +3079,85 @@ h6 {
   }
 }
 
+.w-full {
+  width: 100%;
+}
+
+.max-w-sm {
+  max-width: 24rem;
+}
+
+.calibration__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.calibration__desc {
+  max-width: 32rem;
+}
+
+.calibration-area {
+  width: 100%;
+  padding: 1rem 2rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.calibration-card {
+  border: 2px solid #f15f31;
+  background-color: rgba(241, 95, 49, 0.1019607843);
+  border-radius: 0.5rem;
+  transition: width 0.05s linear, height 0.05s linear;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 0.5rem;
+  background: #e3e3e3;
+  border-radius: 0.3125rem;
+  outline: none;
+  transition: opacity 0.2s;
+}
+
+input[type=range]:hover {
+  opacity: 1;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #f15f31;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  --tw-shadow: 0 .0625rem .125rem 0 rgba(0, 0, 0, .03), 0 .0625rem .375rem -.0625rem rgba(0, 0, 0, .02), 0 .125rem .25rem 0 rgba(0, 0, 0, .02);
+  --tw-shadow-colored: 0 .0625rem .125rem 0 var(--tw-shadow-color), 0 .0625rem .375rem -.0625rem var(--tw-shadow-color), 0 .125rem .25rem 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #f15f31;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  --tw-shadow: 0 .0625rem .125rem 0 rgba(0, 0, 0, .03), 0 .0625rem .375rem -.0625rem rgba(0, 0, 0, .02), 0 .125rem .25rem 0 rgba(0, 0, 0, .02);
+  --tw-shadow-colored: 0 .0625rem .125rem 0 var(--tw-shadow-color), 0 .0625rem .375rem -.0625rem var(--tw-shadow-color), 0 .125rem .25rem 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);
+}
+
 @media (min-width: 640px) {
   .palette__cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
